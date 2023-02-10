@@ -7,6 +7,7 @@ public class PlayerManager : MonoBehaviour
 
     [SerializeField] private bool _FirstPerson;
     [SerializeField] private Camera _Camera;
+    [SerializeField] private bool _InControl;
 
     private GameObject FirstPerson;
     private GameObject ThirdPerson;
@@ -23,6 +24,7 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!_InControl) return;
         //Perspective Stuff
         switch (_FirstPerson)
         {
