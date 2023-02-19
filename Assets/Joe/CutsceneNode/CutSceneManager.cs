@@ -10,7 +10,10 @@ public class CutSceneManager : MonoBehaviour
     [SerializeField] private CutSceneNode _CurrentNode;
     [SerializeField] private bool _Paused;
 
+    [SerializeField] private GameObject[] _ActorNodes;
+
     private float _CurrentTick;
+    private bool _AlreadyTriggered;
 
     [SerializeField] private bool _IsActive;
 
@@ -18,31 +21,40 @@ public class CutSceneManager : MonoBehaviour
     void Start()
     {
         _CurrentTick = 0;
-        _CurrentNode = transform.GetChild(0).GetComponent<CutSceneNode>();
+        _CurrentNode = transform.GetChild(0).GetChild(0).GetComponent<CutSceneNode>();
         _IsActive = false;
     }
 
     public void StartCutScene()
     {
         _CurrentTick = 0;
-        _CurrentNode = transform.GetChild(0).GetComponent<CutSceneNode>();
+        _CurrentNode = transform.GetChild(0).GetChild(0).GetComponent<CutSceneNode>();
         _CurrentNode.CallFunctions();
         _IsActive = true;
+        GameObject.Find("Player").GetComponent<PlayerManager>().ToggleControl(false);
+
+        foreach(GameObject ActorNodeParent in _ActorNodes)
+        {
+            Instantiate(ActorNodeParent.transform.GetChild(0).GetComponent<CutSceneNode>().GetActor(), ActorNodeParent.transform.GetChild(0).transform);
+        }
     }
 
     // Update is called once per frame
     private void FixedUpdate()
     {
-        if (!_IsActive || _Paused) return;
+        if (!_IsActive || _Paused || (!_CurrentNode.CanContinue() && !_AlreadyTriggered)) return;
         _CurrentTick++;
+        _AlreadyTriggered = true;
         if (_CurrentTick>=_CurrentNode.GetNextNode().GetTick())
         {
             _CurrentNode = _CurrentNode.GetNextNode();
             _CurrentNode.CallFunctions();
+            _AlreadyTriggered = false;
 
             if (!_CurrentNode.GetNextNode())
             {
                 _IsActive = false;
+                GameObject.Find("Player").GetComponent<PlayerManager>().ToggleControl(false);
                 return;
             }
 
