@@ -9,6 +9,7 @@ public class MagicGrowth : MagicBasic
 {
     public MagicGrowth()
     {
+        _Label = "Growth";
         _TargetTag = "Plant";
         _Length = 3.0f;
         _Radius = 0.5f;

@@ -7,6 +7,7 @@ public class MagicPush : MagicBasic
     Transform _Transform;
     public MagicPush(Transform Trans)
     {
+        _Label = "Push";
         _TargetTag = "Any";
         _Transform = Trans;
         _Length = 10.0f;
@@ -14,7 +15,7 @@ public class MagicPush : MagicBasic
         _UIColour = Color.magenta;
     }
 
-    public override void OnStartUse(GameObject Target)
+    public override void OnEndUse(GameObject Target)
     {
         if (IsValid(Target.tag))
         {

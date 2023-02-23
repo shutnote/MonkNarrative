@@ -15,8 +15,11 @@ public class MagicBasic
     [SerializeField] protected float _Length;
     protected Vector3 _Position;
 
+    protected string _Label;
+
     public MagicBasic()
     {
+        _Label = "None";
         _UIColour = Color.black;
     }
 
@@ -58,5 +61,10 @@ public class MagicBasic
     public virtual Color GetColour()
     {
         return _UIColour;
+    }
+
+    public virtual string GetLabel()
+    {
+        return _Label;
     }
 }

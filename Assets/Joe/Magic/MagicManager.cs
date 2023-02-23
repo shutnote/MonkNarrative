@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class MagicManager : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class MagicManager : MonoBehaviour
     {
         _Collision = gameObject.AddComponent<CapsuleCollider>();
         _Collision.isTrigger = true;
-        _Collision.enabled = false;
+        _Collision.enabled = true;
         _Collision.direction = 2;
         
         AddNewSpell(new MagicBasic());
@@ -29,15 +30,24 @@ public class MagicManager : MonoBehaviour
     protected void AddNewSpell(MagicBasic Spell)
     {
         Transform UISpells = transform.GetChild(1).GetChild(2);
+        Transform UISpellsText = transform.GetChild(1).GetChild(3);
 
         _Spells.Add(Spell);
 
         GameObject UIElement = Instantiate(new GameObject());
+        GameObject UIElementText = Instantiate(new GameObject());
         UIElement.AddComponent<Image>();
         UIElement.GetComponent<Image>().color = Spell.GetColour();
         UIElement.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
         UIElement.transform.position = UISpells.transform.position;
         UIElement.transform.parent = UISpells;
+
+        UIElementText.AddComponent<TextMeshProUGUI>();
+        UIElementText.GetComponent<TextMeshProUGUI>().text = Spell.GetLabel();
+        UIElementText.GetComponent<TextMeshProUGUI>().fontSize = 24;
+        UIElementText.GetComponent<TextMeshProUGUI>().alignment = TextAlignmentOptions.Center;
+        UIElementText.transform.position = UISpellsText.transform.position;
+        UIElementText.transform.parent = UISpellsText;
     }
 
     public void MagicUISelection()
@@ -45,6 +55,7 @@ public class MagicManager : MonoBehaviour
         transform.GetChild(1).gameObject.SetActive(true);
 
         Transform UISpells = transform.GetChild(1).GetChild(2);
+        Transform UISpellsText = transform.GetChild(1).GetChild(3);
         Transform UIArrow = transform.GetChild(1).GetChild(1);
 
         float Rads = ((2 * Mathf.PI) / UISpells.childCount) / 2;
@@ -72,8 +83,10 @@ public class MagicManager : MonoBehaviour
             }
 
             Vector2 Position = new Vector2(Mathf.Sin(Rads), Mathf.Cos(Rads)) * Offset;
+            Vector2 PositionExt = new Vector2(Mathf.Sin(Rads), Mathf.Cos(Rads)) * (Offset - 30);
 
             UISpells.GetChild(i).GetComponent<RectTransform>().localPosition = Position;
+            UISpellsText.GetChild(i).GetComponent<TextMeshProUGUI>().transform.position = PositionExt + new Vector2(UISpellsText.position.x, UISpellsText.position.y);
 
             Rads += (2 * Mathf.PI) / UISpells.childCount;
         }
@@ -81,10 +94,17 @@ public class MagicManager : MonoBehaviour
 
     public void ToggleActive(bool Active)
     {
-        _Collision.enabled = Active;
+        if (Active)
+        {
+            _Collision.height = _Spells[_SpellIndex].GetLength();
+            _Collision.radius = _Spells[_SpellIndex].GetRadius();
+        }
+        else
+        {
+            _Collision.radius = 0;
+            _Collision.height = 0;
+        }
         _Collision.center = new Vector3(0, 0, _Spells[_SpellIndex].GetLength() / 2);
-        _Collision.height = _Spells[_SpellIndex].GetLength();
-        _Collision.radius = _Spells[_SpellIndex].GetRadius();
     }
 
     private void OnTriggerEnter(Collider other)
