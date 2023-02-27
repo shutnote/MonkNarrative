@@ -12,7 +12,7 @@ public class PlayerManager : MonoBehaviour
     private GameObject FirstPerson;
     private GameObject ThirdPerson;
 
-   
+
 
     // Start is called before the first frame update
     void Start()
@@ -22,14 +22,20 @@ public class PlayerManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
     }
 
+    private void Awake()
+    {
+        
+    }
     // Update is called once per frame
     void Update()
     {
-        if (!_InControl) return;
+        if (!_InControl) {
+            return;
+        }
         //Perspective Stuff
         _Camera.transform.position = FirstPerson.transform.GetChild(0).position;
         _Camera.transform.rotation = Quaternion.Euler(_Camera.transform.rotation.eulerAngles + new Vector3(-Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0));
-        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0, Input.GetAxis("Mouse X"), 0));
+        transform.rotation = Quaternion.Euler(new Vector3(0, _Camera.transform.rotation.eulerAngles.y, 0));
         FirstPerson.transform.rotation = _Camera.transform.rotation;
 
         //Looking At
@@ -61,5 +67,6 @@ public class PlayerManager : MonoBehaviour
     public void ToggleControl(bool Control)
     {
         _InControl = Control;
+        transform.GetChild(0).gameObject.SetActive(Control);
     }
 }

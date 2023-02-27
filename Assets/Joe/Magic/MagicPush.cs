@@ -15,7 +15,7 @@ public class MagicPush : MagicBasic
         _UIColour = Color.magenta;
     }
 
-    public override void OnEndUse(GameObject Target)
+    public override void OnStartUse(GameObject Target)
     {
         if (IsValid(Target.tag))
         {

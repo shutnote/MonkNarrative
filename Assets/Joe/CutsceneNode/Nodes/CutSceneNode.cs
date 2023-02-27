@@ -24,6 +24,8 @@ public class CutSceneNode : MonoBehaviour
     void Start()
     {
         _Manager = transform.parent.GetComponent<CutSceneManager>();
+        transform.GetChild(0).gameObject.SetActive(false);
+        transform.GetChild(1).gameObject.SetActive(false);
     }
 
     public int GetTick()

@@ -17,10 +17,13 @@ public class MagicBasic
 
     protected string _Label;
 
+    protected bool _SelfInflict;
+
     public MagicBasic()
     {
         _Label = "None";
         _UIColour = Color.black;
+        _SelfInflict = false;
     }
 
     protected virtual bool IsValid(string Target)
@@ -66,5 +69,10 @@ public class MagicBasic
     public virtual string GetLabel()
     {
         return _Label;
+    }
+
+    public virtual bool GetSelfInflict()
+    {
+        return _SelfInflict;
     }
 }

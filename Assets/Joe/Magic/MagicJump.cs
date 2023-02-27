@@ -13,10 +13,12 @@ public class MagicJump : MagicBasic
         _Length = 0.0f;
         _Radius = 0.0f;
         _UIColour = Color.yellow;
+        _SelfInflict = true;
     }
 
     public override void OnStartUse(GameObject Target)
     {
-        _Transform.GetComponent<Rigidbody>().AddForce(0, 1000, 0);
+        Debug.Log("Jump");
+        _Transform.GetComponent<Rigidbody>().AddForce(0, 1200, 0);
     }
 }

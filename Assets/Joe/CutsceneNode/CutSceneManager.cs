@@ -2,6 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public struct ACTOR {
+    public GameObject _Actor;
+    public CutSceneNode _CurrentNode;
+    public CutSceneNode _NextNode;
+}
+
+
 
 public class CutSceneManager : MonoBehaviour
 {
@@ -9,8 +16,11 @@ public class CutSceneManager : MonoBehaviour
     [SerializeField] private Camera _Camera;
     [SerializeField] private CutSceneNode _CurrentNode;
     [SerializeField] private bool _Paused;
+    [SerializeField] private GameObject _PlayerPositionAtEnd;
+    [SerializeField] private GameObject _Player;
 
-    [SerializeField] private GameObject[] _ActorNodes;
+    [SerializeField] private CutSceneNode[] _ActorNodes;
+    private List<ACTOR> _Actors;
 
     private float _CurrentTick;
     private bool _AlreadyTriggered;
@@ -21,21 +31,25 @@ public class CutSceneManager : MonoBehaviour
     void Start()
     {
         _CurrentTick = 0;
-        _CurrentNode = transform.GetChild(0).GetChild(0).GetComponent<CutSceneNode>();
+        //_CurrentNode = transform.GetChild(0).GetChild(0).GetComponent<CutSceneNode>();
         _IsActive = false;
     }
 
     public void StartCutScene()
     {
         _CurrentTick = 0;
-        _CurrentNode = transform.GetChild(0).GetChild(0).GetComponent<CutSceneNode>();
+        //_CurrentNode = transform.GetChild(0).GetChild(0).GetComponent<CutSceneNode>();
         _CurrentNode.CallFunctions();
         _IsActive = true;
         GameObject.Find("Player").GetComponent<PlayerManager>().ToggleControl(false);
-
-        foreach(GameObject ActorNodeParent in _ActorNodes)
+        _Actors = new List<ACTOR> { };
+        foreach(CutSceneNode ActorNodeParent in _ActorNodes)
         {
-            Instantiate(ActorNodeParent.transform.GetChild(0).GetComponent<CutSceneNode>().GetActor(), ActorNodeParent.transform.GetChild(0).transform);
+            ACTOR Actor = new ACTOR();
+            Actor._Actor = ActorNodeParent.GetActor();
+            Actor._CurrentNode = ActorNodeParent;
+            Actor._NextNode = ActorNodeParent.GetNextNode();
+            _Actors.Add(Actor);
         }
     }
 
@@ -54,14 +68,14 @@ public class CutSceneManager : MonoBehaviour
             if (!_CurrentNode.GetNextNode())
             {
                 _IsActive = false;
-                GameObject.Find("Player").GetComponent<PlayerManager>().ToggleControl(false);
+                _Player.GetComponent<PlayerManager>().ToggleControl(true);
+                _Player.transform.position = _PlayerPositionAtEnd.transform.position;
                 return;
             }
 
             _Paused = _CurrentNode.GetPauseOnReach();
 
         }
-        
         //Gets the position of the node and next or "destination" node
         Vector3 CurrentNode = _CurrentNode.transform.position;
         Vector3 TargetNode = _CurrentNode.GetNextNode().transform.position;
@@ -82,6 +96,45 @@ public class CutSceneManager : MonoBehaviour
         Quaternion ProgressR = Quaternion.LerpUnclamped(CurrentNodeR, TargetNodeR, NodeProgress);
 
         _Camera.transform.rotation = ProgressR;
+        for (int i = 0; i < _Actors.Count; i++)
+        {
+            ACTOR Actor = _Actors[i];
+            if (_CurrentTick >= Actor._NextNode.GetTick())
+            {
+                if (!Actor._NextNode.GetNextNode())
+                {
+                    Debug.Log("Finished");
+                    _Actors.Remove(Actor);
+                    continue;
+                }
+                else
+                {
+                    ACTOR NewActor = new ACTOR();
+                    NewActor._CurrentNode = Actor._NextNode;
+                    NewActor._NextNode = Actor._NextNode.GetNextNode();
+                    NewActor._Actor = Actor._Actor;
+                    _Actors[i] = NewActor;
+                    Actor = _Actors[i];
+                }
+
+            }
+
+            NodeProgress = (Actor._CurrentNode.GetTick() - _CurrentTick) / (Actor._CurrentNode.GetTick() - Actor._CurrentNode.GetNextNode().GetTick());
+
+            CurrentNode = Actor._CurrentNode.transform.position;
+            TargetNode = Actor._NextNode.transform.position;
+            Progress = Vector3.Lerp(CurrentNode, TargetNode, NodeProgress);
+            Actor._Actor.transform.position = Progress;
+
+            CurrentNodeR = Actor._CurrentNode.transform.rotation;
+            TargetNodeR = Actor._NextNode.transform.rotation;
+
+            ProgressR = Quaternion.Lerp(CurrentNodeR, TargetNodeR, NodeProgress);
+
+            Actor._Actor.transform.rotation = ProgressR;
+            
+        }
+
     }
 
     public void TogglePause()

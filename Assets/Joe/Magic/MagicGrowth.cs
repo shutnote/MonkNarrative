@@ -19,7 +19,6 @@ public class MagicGrowth : MagicBasic
 
     public override void OnUse(GameObject Target)
     {
-        Debug.Log("I've grown this plant");
         if (IsValid(Target.tag) && Target.transform.localScale.x < 1.5f)
         {
             Target.transform.localScale += new Vector3(0.1f, 0.1f, 0.1f) * Time.deltaTime;

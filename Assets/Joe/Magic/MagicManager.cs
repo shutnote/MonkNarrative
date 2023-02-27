@@ -9,8 +9,8 @@ public class MagicManager : MonoBehaviour
 
     private CapsuleCollider _Collision;
     [SerializeField] private List<MagicBasic> _Spells;
-    [SerializeField] private MagicBasic _CurrentSpell;
-    [SerializeField] private int _SpellIndex;
+    [SerializeField] private int _SpellIndexLeft;
+    [SerializeField] private int _SpellIndexRight;
 
     // Start is called before the first frame update
     void Start()
@@ -20,10 +20,10 @@ public class MagicManager : MonoBehaviour
         _Collision.enabled = true;
         _Collision.direction = 2;
         
-        AddNewSpell(new MagicBasic());
         AddNewSpell(new MagicGrowth());
         AddNewSpell(new MagicTaser(transform));
         AddNewSpell(new MagicPush(transform));
+        AddNewSpell(new MagicJump(transform));
 
     }
 
@@ -74,19 +74,21 @@ public class MagicManager : MonoBehaviour
 
         for (int i = 0; i < UISpells.childCount; i++)
         {
-            Offset = 130.0f;
+            Offset = 100.0f;
 
-            if((i * DegreeChange <= Angle && Angle <= (i + 1) * DegreeChange))
+            if ((i * DegreeChange <= Angle && Angle <= (i + 1) * DegreeChange))
             {
                 Offset = 200.0f;
-                _SpellIndex = i;
+                _SpellIndexLeft = i;
+                
             }
 
             Vector2 Position = new Vector2(Mathf.Sin(Rads), Mathf.Cos(Rads)) * Offset;
-            Vector2 PositionExt = new Vector2(Mathf.Sin(Rads), Mathf.Cos(Rads)) * (Offset - 30);
+            Vector2 PositionExt = new Vector2(Mathf.Sin(Rads), Mathf.Cos(Rads)) * (Offset - 50);
+
+            UISpellsText.GetChild(i).GetComponent<TextMeshProUGUI>().transform.position = PositionExt + new Vector2(UISpellsText.position.x, UISpellsText.position.y);
 
             UISpells.GetChild(i).GetComponent<RectTransform>().localPosition = Position;
-            UISpellsText.GetChild(i).GetComponent<TextMeshProUGUI>().transform.position = PositionExt + new Vector2(UISpellsText.position.x, UISpellsText.position.y);
 
             Rads += (2 * Mathf.PI) / UISpells.childCount;
         }
@@ -94,36 +96,45 @@ public class MagicManager : MonoBehaviour
 
     public void ToggleActive(bool Active)
     {
+        
         if (Active)
         {
-            _Collision.height = _Spells[_SpellIndex].GetLength();
-            _Collision.radius = _Spells[_SpellIndex].GetRadius();
+            if (_Spells[_SpellIndexLeft].GetSelfInflict())
+            {
+                if (Input.GetButtonDown("Fire1"))
+                {
+                    _Spells[_SpellIndexLeft].OnStartUse(gameObject);
+                }
+                
+            }
+            _Collision.height = _Spells[_SpellIndexLeft].GetLength();
+            _Collision.radius = _Spells[_SpellIndexLeft].GetRadius();
         }
         else
         {
             _Collision.radius = 0;
             _Collision.height = 0;
         }
-        _Collision.center = new Vector3(0, 0, _Spells[_SpellIndex].GetLength() / 2);
+        _Collision.center = new Vector3(0, 0, _Spells[_SpellIndexLeft].GetLength() / 2);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        _Spells[_SpellIndex].OnStartUse(other.gameObject);
+        _Spells[_SpellIndexLeft].OnStartUse(other.gameObject);
     }
 
     private void OnTriggerStay(Collider other)
     {
-        _Spells[_SpellIndex].OnUse(other.gameObject);
+        _Spells[_SpellIndexLeft].OnUse(other.gameObject);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        _Spells[_SpellIndex].OnEndUse(other.gameObject);
+        _Spells[_SpellIndexLeft].OnEndUse(other.gameObject);
     }
 
     private void Update()
     {
-        _Spells[_SpellIndex].OnUse();
+        _Spells[_SpellIndexLeft].OnUse();
     }
 }

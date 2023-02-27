@@ -17,6 +17,11 @@ public class CutSceneTriggers : MonoBehaviour
 
     private bool _IsTriggered;
 
+    public void Start()
+    {
+        transform.GetChild(0).gameObject.SetActive(false);
+    }
+
     public bool IsTriggered()
     {
         switch (_Trigger)
@@ -34,8 +39,36 @@ public class CutSceneTriggers : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            _TriggerFunctions.Invoke();
-            _IsTriggered = true;
+            switch (_Trigger)
+            {
+                case POTTRIGGERS.ZONE:
+                    _TriggerFunctions.Invoke();
+                    _IsTriggered = true;
+                    break;
+            }
+            
+        }
+        else
+        {
+            _IsTriggered = false;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            switch (_Trigger)
+            {
+                case POTTRIGGERS.BUTTON:
+                    if (Input.GetButton(_ButtonInput))
+                    {
+                        Debug.Log("Hi tere");
+                        _TriggerFunctions.Invoke();
+                        _IsTriggered = true;
+                    }
+                    break;
+            }
         }
         else
         {
