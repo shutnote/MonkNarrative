@@ -12,6 +12,7 @@ public class CutSceneTriggers : MonoBehaviour
     [SerializeField] private POTTRIGGERS _Trigger;
 
     [SerializeField] private string _ButtonInput;
+    [SerializeField] private string _ZoneTag;
 
     [SerializeField] private UnityEvent _TriggerFunctions;
 
@@ -37,7 +38,7 @@ public class CutSceneTriggers : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if(other.tag == _ZoneTag)
         {
             switch (_Trigger)
             {
@@ -56,7 +57,7 @@ public class CutSceneTriggers : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == _ZoneTag)
         {
             switch (_Trigger)
             {
@@ -78,7 +79,7 @@ public class CutSceneTriggers : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == _ZoneTag)
         {
             _IsTriggered = false;
         }

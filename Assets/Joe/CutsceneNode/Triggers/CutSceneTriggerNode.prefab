@@ -131,6 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Trigger: 0
   _ButtonInput: 
+  _ZoneTag: Player
   _TriggerFunctions:
     m_PersistentCalls:
       m_Calls: []

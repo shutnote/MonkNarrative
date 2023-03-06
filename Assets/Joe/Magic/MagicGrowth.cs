@@ -11,8 +11,8 @@ public class MagicGrowth : MagicBasic
     {
         _Label = "Growth";
         _TargetTag = "Plant";
-        _Length = 3.0f;
-        _Radius = 0.5f;
+        _Length = 15.0f;
+        _Radius = 15.0f;
         _UIColour = Color.green;
     }
 

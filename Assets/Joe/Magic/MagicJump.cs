@@ -18,7 +18,6 @@ public class MagicJump : MagicBasic
 
     public override void OnStartUse(GameObject Target)
     {
-        Debug.Log("Jump");
         _Transform.GetComponent<Rigidbody>().AddForce(0, 1200, 0);
     }
 }

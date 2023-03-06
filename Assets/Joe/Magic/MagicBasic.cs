@@ -33,7 +33,6 @@ public class MagicBasic
 
     public virtual void OnStartUse(GameObject Target)
     {
-        if (IsValid(Target.tag)) Debug.Log("Start");
     }
 
     public virtual void OnUse()
@@ -43,12 +42,10 @@ public class MagicBasic
 
     public virtual void OnUse(GameObject Target)
     {
-        if (IsValid(Target.tag)) Debug.Log("Continue");
     }
 
     public virtual void OnEndUse(GameObject Target)
     {
-        if (IsValid(Target.tag)) Debug.Log("End");
     }
 
     public virtual float GetLength()

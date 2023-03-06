@@ -131,10 +131,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _NextNode: {fileID: 0}
   _Tick: 0
+  _Type: 1
   _Calls:
     m_PersistentCalls:
       m_Calls: []
+  _Trigger: {fileID: 0}
   _PauseOnReach: 0
+  _Actor: {fileID: 0}
 --- !u!1 &7647299016360134250
 GameObject:
   m_ObjectHideFlags: 0

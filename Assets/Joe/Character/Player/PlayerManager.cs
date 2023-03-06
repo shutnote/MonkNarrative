@@ -32,6 +32,16 @@ public class PlayerManager : MonoBehaviour
         if (!_InControl) {
             return;
         }
+
+        if (Input.GetButton("SpellMenu"))
+        {
+            _MagicManager.MagicUISelection();
+            return;
+        }
+        else
+        {
+            transform.GetChild(1).gameObject.SetActive(false);
+        }
         //Perspective Stuff
         _Camera.transform.position = FirstPerson.transform.GetChild(0).position;
         _Camera.transform.rotation = Quaternion.Euler(_Camera.transform.rotation.eulerAngles + new Vector3(-Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0));
@@ -52,15 +62,6 @@ public class PlayerManager : MonoBehaviour
         }
 
         _MagicManager.ToggleActive(Input.GetButton("Fire1") || Input.GetButtonUp("Fire1"));
-
-        if (Input.GetButton("SpellMenu"))
-        {
-            _MagicManager.MagicUISelection();
-        }
-        else
-        {
-            transform.GetChild(1).gameObject.SetActive(false);
-        }
 
     }
 

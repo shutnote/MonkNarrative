@@ -56,8 +56,12 @@ public class CutSceneManager : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
-        if (!_IsActive || _Paused || (!_CurrentNode.CanContinue() && !_AlreadyTriggered)) return;
+        if (!_IsActive || _Paused || (!_CurrentNode.CanContinue() && !_AlreadyTriggered))
+        {
+            return;
+        }
         _CurrentTick++;
+        Debug.Log(_CurrentTick);
         _AlreadyTriggered = true;
         if (_CurrentTick>=_CurrentNode.GetNextNode().GetTick())
         {
@@ -70,6 +74,7 @@ public class CutSceneManager : MonoBehaviour
                 _IsActive = false;
                 _Player.GetComponent<PlayerManager>().ToggleControl(true);
                 _Player.transform.position = _PlayerPositionAtEnd.transform.position;
+                _Player.transform.rotation = _PlayerPositionAtEnd.transform.rotation;
                 return;
             }
 
@@ -103,7 +108,6 @@ public class CutSceneManager : MonoBehaviour
             {
                 if (!Actor._NextNode.GetNextNode())
                 {
-                    Debug.Log("Finished");
                     _Actors.Remove(Actor);
                     continue;
                 }

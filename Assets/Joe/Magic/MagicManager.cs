@@ -19,11 +19,12 @@ public class MagicManager : MonoBehaviour
         _Collision.isTrigger = true;
         _Collision.enabled = true;
         _Collision.direction = 2;
-        
+
+        AddNewSpell(new MagicJump(transform));
         AddNewSpell(new MagicGrowth());
         AddNewSpell(new MagicTaser(transform));
         AddNewSpell(new MagicPush(transform));
-        AddNewSpell(new MagicJump(transform));
+        
 
     }
 
