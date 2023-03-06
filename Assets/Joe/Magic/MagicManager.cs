@@ -121,7 +121,11 @@ public class MagicManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        _Spells[_SpellIndexLeft].OnStartUse(other.gameObject);
+        if (!_Spells[_SpellIndexLeft].GetSelfInflict())
+        {
+            _Spells[_SpellIndexLeft].OnStartUse(other.gameObject);
+        }
+            
     }
 
     private void OnTriggerStay(Collider other)

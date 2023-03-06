@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public enum POTTRIGGERS { BUTTON, ZONE };
+public enum POTTRIGGERS { BUTTON, ZONE, ONLOADED };
 
 public class CutSceneTriggers : MonoBehaviour
 {
@@ -13,6 +13,7 @@ public class CutSceneTriggers : MonoBehaviour
 
     [SerializeField] private string _ButtonInput;
     [SerializeField] private string _ZoneTag;
+    [SerializeField] private int _NumOfTimesCanTrigger;
 
     [SerializeField] private UnityEvent _TriggerFunctions;
 
@@ -21,6 +22,37 @@ public class CutSceneTriggers : MonoBehaviour
     public void Start()
     {
         transform.GetChild(0).gameObject.SetActive(false);
+        
+    }
+
+    public void Awake()
+    {
+        switch (_Trigger)
+        {
+            case POTTRIGGERS.ONLOADED:
+                Trigger(true);
+                break;
+        }
+
+    }
+
+    public void Trigger(bool Trigger)
+    {
+        if (_NumOfTimesCanTrigger > 0)
+        {
+            _IsTriggered = Trigger;
+            if (Trigger)
+            {
+                _TriggerFunctions.Invoke();
+                _NumOfTimesCanTrigger--;
+            }
+            
+            return;
+        }
+        else
+        {
+            _IsTriggered = false;
+        }
     }
 
     public bool IsTriggered()
@@ -28,12 +60,14 @@ public class CutSceneTriggers : MonoBehaviour
         switch (_Trigger)
         {
             case POTTRIGGERS.BUTTON:
-                return Input.GetButton(_ButtonInput);
+                Trigger(Input.GetButton(_ButtonInput));
+                break;
             case POTTRIGGERS.ZONE:
-                return _IsTriggered;
+                Trigger(true);
+                break;
         }
 
-        return true;
+        return _IsTriggered;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -43,8 +77,7 @@ public class CutSceneTriggers : MonoBehaviour
             switch (_Trigger)
             {
                 case POTTRIGGERS.ZONE:
-                    _TriggerFunctions.Invoke();
-                    _IsTriggered = true;
+                    Trigger(true);
                     break;
             }
             
@@ -62,12 +95,7 @@ public class CutSceneTriggers : MonoBehaviour
             switch (_Trigger)
             {
                 case POTTRIGGERS.BUTTON:
-                    if (Input.GetButton(_ButtonInput))
-                    {
-                        Debug.Log("Hi tere");
-                        _TriggerFunctions.Invoke();
-                        _IsTriggered = true;
-                    }
+                    Trigger(Input.GetButton(_ButtonInput));
                     break;
             }
         }
@@ -81,7 +109,7 @@ public class CutSceneTriggers : MonoBehaviour
     {
         if (other.tag == _ZoneTag)
         {
-            _IsTriggered = false;
+            Trigger(false);
         }
     }
 }

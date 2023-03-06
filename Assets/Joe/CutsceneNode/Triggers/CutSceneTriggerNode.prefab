@@ -132,6 +132,7 @@ MonoBehaviour:
   _Trigger: 0
   _ButtonInput: 
   _ZoneTag: Player
+  _NumOfTimesCanTrigger: 1
   _TriggerFunctions:
     m_PersistentCalls:
       m_Calls: []
