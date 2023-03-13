@@ -10,7 +10,7 @@ public class StartGrowth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!_StartGrowing || transform.localScale.x > 1.5f) return;
+        if (!_StartGrowing || transform.localScale.x > 1.0f) return;
         transform.localScale = transform.localScale + new Vector3(0.5f * Time.deltaTime, 0.5f * Time.deltaTime, 0.5f * Time.deltaTime);
     }
 
