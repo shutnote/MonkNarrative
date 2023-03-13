@@ -20,10 +20,13 @@ public class CutSceneManager : MonoBehaviour
     [SerializeField] private GameObject _Player;
 
     [SerializeField] private CutSceneNode[] _ActorNodes;
+    [SerializeField] private int _EndingTick;
     private List<ACTOR> _Actors;
 
     private float _CurrentTick;
     private bool _AlreadyTriggered;
+    private CutSceneNode _InitNode;
+    private bool _ContinueCamera;
 
     [SerializeField] private bool _IsActive;
 
@@ -31,15 +34,23 @@ public class CutSceneManager : MonoBehaviour
     void Start()
     {
         _CurrentTick = 0;
+        _InitNode = _CurrentNode;
         //_CurrentNode = transform.GetChild(0).GetChild(0).GetComponent<CutSceneNode>();
         _IsActive = false;
     }
 
     public void StartCutScene()
     {
+        if (_IsActive) return;
         _CurrentTick = 0;
-        //_CurrentNode = transform.GetChild(0).GetChild(0).GetComponent<CutSceneNode>();
-        _CurrentNode.CallFunctions();
+        if (_CurrentNode)
+        {
+            _CurrentNode = _InitNode;
+            _ContinueCamera = true;
+            //_CurrentNode = transform.GetChild(0).GetChild(0).GetComponent<CutSceneNode>();
+            _CurrentNode.CallFunctions();
+        }
+        
         _IsActive = true;
         GameObject.Find("Player").GetComponent<PlayerManager>().ToggleControl(false);
         _Actors = new List<ACTOR> { };
@@ -60,47 +71,65 @@ public class CutSceneManager : MonoBehaviour
         {
             return;
         }
+        if(_CurrentTick > _EndingTick)
+        {
+            Debug.Log("Ending Cutscene");
+            _IsActive = false;
+        }
+        Vector3 CurrentNode;
+        Vector3 TargetNode;
+        float NodeProgress;
+        Vector3 Progress;
+        Quaternion CurrentNodeR;
+        Quaternion TargetNodeR;
+        Quaternion ProgressR;
+
         _CurrentTick++;
         Debug.Log(_CurrentTick);
         _AlreadyTriggered = true;
-        if (_CurrentTick>=_CurrentNode.GetNextNode().GetTick())
+        if (_ContinueCamera)
         {
-            _CurrentNode = _CurrentNode.GetNextNode();
-            _CurrentNode.CallFunctions();
-            _AlreadyTriggered = false;
-
-            if (!_CurrentNode.GetNextNode())
+            if (_CurrentTick >= _CurrentNode.GetNextNode().GetTick())
             {
-                _IsActive = false;
-                _Player.GetComponent<PlayerManager>().ToggleControl(true);
-                _Player.transform.position = _PlayerPositionAtEnd.transform.position;
-                _Player.transform.rotation = _PlayerPositionAtEnd.transform.rotation;
-                return;
+                _CurrentNode = _CurrentNode.GetNextNode();
+                _CurrentNode.CallFunctions();
+                _AlreadyTriggered = false;
+
+                if (!_CurrentNode.GetNextNode())
+                {
+                    _ContinueCamera = false;
+                    _Player.GetComponent<PlayerManager>().ToggleControl(true);
+                    _Player.transform.position = _PlayerPositionAtEnd.transform.position;
+                    _Player.transform.rotation = _PlayerPositionAtEnd.transform.rotation;
+                }
+
+                _Paused = _CurrentNode.GetPauseOnReach();
+
             }
 
-            _Paused = _CurrentNode.GetPauseOnReach();
+            //Gets the position of the node and next or "destination" node
+            CurrentNode = _CurrentNode.transform.position;
+            TargetNode = _CurrentNode.GetNextNode().transform.position;
 
+            //Gets the progress the camera has made between ticks
+            NodeProgress = (_CurrentNode.GetTick() - _CurrentTick) / (_CurrentNode.GetTick() - _CurrentNode.GetNextNode().GetTick());
+
+            //Sets the position of the camera depending on the progress
+            Progress = Vector3.LerpUnclamped(CurrentNode, TargetNode, NodeProgress);
+
+            _Camera.transform.position = Progress;
+
+            //Gets the position of the node and next or "destination" node
+            CurrentNodeR = _CurrentNode.transform.rotation;
+            TargetNodeR = _CurrentNode.GetNextNode().transform.rotation;
+
+            //Sets the position of the camera depending on the progress
+            ProgressR = Quaternion.LerpUnclamped(CurrentNodeR, TargetNodeR, NodeProgress);
+
+            _Camera.transform.rotation = ProgressR;
         }
-        //Gets the position of the node and next or "destination" node
-        Vector3 CurrentNode = _CurrentNode.transform.position;
-        Vector3 TargetNode = _CurrentNode.GetNextNode().transform.position;
-
-        //Gets the progress the camera has made between ticks
-        float NodeProgress = (_CurrentNode.GetTick() - _CurrentTick) / (_CurrentNode.GetTick() - _CurrentNode.GetNextNode().GetTick());
-
-        //Sets the position of the camera depending on the progress
-        Vector3 Progress = Vector3.LerpUnclamped(CurrentNode, TargetNode, NodeProgress);
-
-        _Camera.transform.position = Progress;
-
-        //Gets the position of the node and next or "destination" node
-        Quaternion CurrentNodeR = _CurrentNode.transform.rotation;
-        Quaternion TargetNodeR = _CurrentNode.GetNextNode().transform.rotation;
-
-        //Sets the position of the camera depending on the progress
-        Quaternion ProgressR = Quaternion.LerpUnclamped(CurrentNodeR, TargetNodeR, NodeProgress);
-
-        _Camera.transform.rotation = ProgressR;
+        
+        
         for (int i = 0; i < _Actors.Count; i++)
         {
             ACTOR Actor = _Actors[i];

@@ -19,9 +19,9 @@ public class MagicGrowth : MagicBasic
 
     public override void OnUse(GameObject Target)
     {
-        if (IsValid(Target.tag) && Target.transform.localScale.x < 1.5f)
+        if (IsValid(Target.tag) && Target.transform.localScale.x < 0.2f)
         {
-            Target.transform.localScale += new Vector3(0.1f, 0.1f, 0.1f) * Time.deltaTime;
+            Target.transform.localScale += new Vector3(0.01f, 0.01f, 0.01f) * Time.deltaTime;
         }
     }
 }
