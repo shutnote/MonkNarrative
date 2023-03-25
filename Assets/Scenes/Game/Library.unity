@@ -1561,7 +1561,6 @@ GameObject:
   - component: {fileID: 1491017734}
   - component: {fileID: 1491017733}
   - component: {fileID: 1491017732}
-  - component: {fileID: 1491017735}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1635,22 +1634,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 35.332, y: 86.11, z: -2.252}
---- !u!114 &1491017735
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1491017731}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e2922f84b814784d8b24d00078dcdba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioSources:
-  - {fileID: 2006771911}
-  musicGroup: {fileID: 0}
-  dialogueGroup: {fileID: 0}
 --- !u!4 &1505845048 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6a5dd03227669554b84253255c41e723, type: 3}
@@ -2280,6 +2263,8 @@ MonoBehaviour:
   mixerGroup: {fileID: -4119682231058865766, guid: fd77b5e66541b694d9f04e8828c2551d, type: 2}
   startingVolume: 10
   startingPitch: 1
+  loop: 0
+  spatialBlend: 0
   startClip: {fileID: 8300000, guid: 48f2ba9646f4376498af1009a98d7c09, type: 3}
 --- !u!81 &2006771913
 AudioListener:

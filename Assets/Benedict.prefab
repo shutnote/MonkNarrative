@@ -146,6 +146,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monk (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 4b8f2095a87f05840a5e44ed58eff70d, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b8f2095a87f05840a5e44ed58eff70d, type: 3}
 --- !u!4 &1974604927633085852 stripped
