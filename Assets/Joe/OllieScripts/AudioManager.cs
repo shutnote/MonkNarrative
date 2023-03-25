@@ -9,7 +9,10 @@ public class AudioManager : MonoBehaviour
     public AudioMixer mixer;
 
     public List<AudioSourceController> audioSources;
-    public List<AudioClip> footstepSounds;
+
+    public List<AudioClip> footstepSoundsStone;
+    public List<AudioClip> footstepSoundsSoil;
+
     public AudioSourceController jeremusController;
 
     [SerializeField]
@@ -41,7 +44,7 @@ public class AudioManager : MonoBehaviour
         PlayAll(sfxGroup);
     }
 
-    public void PlayRandomFootstep()
+    public void PlayRandomFootstep(List<AudioClip>footstepSounds)
     {
         int index = Random.Range(0, footstepSounds.Count);
         jeremusController.SetClip(footstepSounds[index]);
