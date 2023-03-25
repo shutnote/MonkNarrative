@@ -6,6 +6,7 @@ using UnityEngine.Audio;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
+    public AudioMixer mixer;
 
     public List<AudioSourceController> audioSources;
     public List<AudioClip> footstepSounds;
@@ -15,6 +16,10 @@ public class AudioManager : MonoBehaviour
     private AudioMixerGroup musicGroup;
     [SerializeField]
     private AudioMixerGroup dialogueGroup;
+    [SerializeField]
+    private AudioMixerGroup ambientGroup;
+    [SerializeField]
+    private AudioMixerGroup sfxGroup;
 
 
     private void Awake()
@@ -30,6 +35,12 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        PlayAll(ambientGroup);
+        PlayAll(sfxGroup);
+    }
+
     public void PlayRandomFootstep()
     {
         int index = Random.Range(0, footstepSounds.Count);
@@ -37,14 +48,30 @@ public class AudioManager : MonoBehaviour
         jeremusController.Play();
     }
 
-    public void PlayAll(AudioClip clip, AudioMixerGroup mixerGroup)
+    //just play all ready clips on this channel
+    public void PlayAll(AudioMixerGroup mixerGroup)
     {
         foreach (var audioSource in audioSources)
         {
             if (!audioSource.IsPlaying())
             {
+                if(audioSource.mixerGroup==mixerGroup)
+                    audioSource.Play();
+            }
+        }
+    }
+
+    //specify a clip and play on this channel 
+    public void PlayAll(AudioClip clip, AudioMixerGroup mixerGroup)
+    {
+        foreach (var audioSource in audioSources)
+        {
+            if (audioSource.mixerGroup != mixerGroup) continue;
+            if (!audioSource.IsPlaying())
+            {
+
                 audioSource.SetClip(clip);
-                audioSource.SetMixerGroup(mixerGroup);
+                
                 audioSource.Play();
                 return;
             }
@@ -56,10 +83,10 @@ public class AudioManager : MonoBehaviour
     {
         foreach (var audioSource in audioSources)
         {
+            if (audioSource.mixerGroup != mixerGroup) continue; 
             if (!audioSource.IsPlaying())
             {
                 audioSource.SetClip(clip);
-                audioSource.SetMixerGroup(mixerGroup);
                 audioSource.SetVolume(volume);
                 audioSource.Play();
                 return;

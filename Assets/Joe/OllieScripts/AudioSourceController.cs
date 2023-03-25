@@ -9,6 +9,7 @@ public class AudioSourceController : MonoBehaviour
     public float startingVolume = 1f;
     public float startingPitch = 1f;
     public bool loop;
+    public float spatialBlend;
 
     private AudioSource audioSource;
     public AudioClip startClip;
@@ -20,12 +21,10 @@ public class AudioSourceController : MonoBehaviour
         audioSource.outputAudioMixerGroup = mixerGroup;
         audioSource.volume = startingVolume;
         audioSource.pitch = startingPitch;
+        audioSource.spatialBlend = spatialBlend;
         audioSource.loop = loop;
     }
-    private void Start()
-    {
-        Play();
-    }
+
     public IEnumerator FadeIn(float fadeDuration)
     {
         float currentTime = 0f;
