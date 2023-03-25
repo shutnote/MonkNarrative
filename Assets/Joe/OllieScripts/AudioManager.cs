@@ -8,6 +8,8 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance;
 
     public List<AudioSourceController> audioSources;
+    public List<AudioClip> footstepSounds;
+    public AudioSourceController jeremusController;
 
     [SerializeField]
     private AudioMixerGroup musicGroup;
@@ -28,20 +30,11 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void PlayRandomFootstep(AudioClip[] footstepSounds, AudioMixerGroup mixerGroup)
+    public void PlayRandomFootstep()
     {
-        int index = Random.Range(0, footstepSounds.Length);
-
-        foreach (var audioSource in audioSources)
-        {
-            if (!audioSource.IsPlaying())
-            {
-                audioSource.SetClip(footstepSounds[index]);
-                audioSource.SetMixerGroup(mixerGroup);
-                audioSource.Play();
-                return;
-            }
-        }
+        int index = Random.Range(0, footstepSounds.Count);
+        jeremusController.SetClip(footstepSounds[index]);
+        jeremusController.Play();
     }
 
     public void PlayAll(AudioClip clip, AudioMixerGroup mixerGroup)

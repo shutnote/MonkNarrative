@@ -8,6 +8,7 @@ public class AudioSourceController : MonoBehaviour
     public AudioMixerGroup mixerGroup;
     public float startingVolume = 1f;
     public float startingPitch = 1f;
+    public bool loop;
 
     private AudioSource audioSource;
     public AudioClip startClip;
@@ -19,8 +20,12 @@ public class AudioSourceController : MonoBehaviour
         audioSource.outputAudioMixerGroup = mixerGroup;
         audioSource.volume = startingVolume;
         audioSource.pitch = startingPitch;
+        audioSource.loop = loop;
     }
-
+    private void Start()
+    {
+        Play();
+    }
     public IEnumerator FadeIn(float fadeDuration)
     {
         float currentTime = 0f;

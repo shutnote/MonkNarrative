@@ -56,10 +56,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9103121683500343398}
-  - component: {fileID: -4970235401744052750}
-  - component: {fileID: -7076839874625887045}
   m_Layer: 0
-  m_Name: Jeremus
+  m_Name: Benedict
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,40 +79,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-4970235401744052750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7071154171510290449}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e2922f84b814784d8b24d00078dcdba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioSources: []
-  footstepSounds: []
-  jeremusController: {fileID: -7076839874625887045}
-  musicGroup: {fileID: -4080640133763132097, guid: fd77b5e66541b694d9f04e8828c2551d, type: 2}
-  dialogueGroup: {fileID: -2433438031595429630, guid: fd77b5e66541b694d9f04e8828c2551d, type: 2}
---- !u!114 &-7076839874625887045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7071154171510290449}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e82caa2608497524ab2fc1d1dfab947f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mixerGroup: {fileID: 0}
-  startingVolume: 1
-  startingPitch: 1
-  loop: 0
-  startClip: {fileID: 0}
 --- !u!1001 &2084478080829829751
 PrefabInstance:
   m_ObjectHideFlags: 0
