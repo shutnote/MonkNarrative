@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
-    public float moveSpeed =1f;
+    public float moveSpeed = 1f;
     public Animator animator;
     private Rigidbody rb;
 
@@ -17,20 +16,42 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
+        //Gets input from WSAD
+        Vector3 Delta = new Vector3(Input.GetAxis("Horizontal") * 3, 0, Input.GetAxis("Vertical") * 3);
 
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-        rb.AddForce(movement * moveSpeed);
+        //Gets speed of player
+        float Speed = rb.velocity.magnitude;
 
-        if (movement.magnitude > 0)
+        //Makes sure that the speed is greater than 0
+        float DeltaSpeed = Mathf.Max(5.0f - Speed, 0.0f);
+
+        //Applies the speed
+        rb.AddRelativeForce(Delta * DeltaSpeed);
+        // Get the player's velocity along the z-axis (forward/backward)
+        float zVelocity = rb.velocity.z;
+
+        // Set the animation trigger speed based on the player's velocity
+        if (zVelocity > 0)
         {
-            animator.SetBool("IsRunning", true);
+            animator.SetFloat("Speed", zVelocity);
+        }
+        else if (zVelocity < 0)
+        {
+            animator.SetFloat("Speed", -zVelocity);
+        }
+        else
+        {
+            animator.SetFloat("Speed", 0);
+        }
+
+        if (Speed > 0)
+        {
+            animator.SetBool("IsWalking", true);
             animator.SetBool("IsIdle", false);
         }
         else
         {
-            animator.SetBool("IsRunning", false);
+            animator.SetBool("IsWalking", false);
             animator.SetBool("IsIdle", true);
         }
     }
