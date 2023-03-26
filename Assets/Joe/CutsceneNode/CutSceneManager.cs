@@ -62,6 +62,7 @@ public class CutSceneManager : MonoBehaviour
             Actor._NextNode = ActorNodeParent.GetNextNode();
             _Actors.Add(Actor);
         }
+
     }
 
     // Update is called once per frame
@@ -85,7 +86,6 @@ public class CutSceneManager : MonoBehaviour
         Quaternion ProgressR;
 
         _CurrentTick++;
-        Debug.Log(_CurrentTick);
         _AlreadyTriggered = true;
         if (_ContinueCamera)
         {
@@ -101,6 +101,7 @@ public class CutSceneManager : MonoBehaviour
                     _Player.GetComponent<PlayerManager>().ToggleControl(true);
                     _Player.transform.position = _PlayerPositionAtEnd.transform.position;
                     _Player.transform.rotation = _PlayerPositionAtEnd.transform.rotation;
+                    return;
                 }
 
                 _Paused = _CurrentNode.GetPauseOnReach();
@@ -142,12 +143,17 @@ public class CutSceneManager : MonoBehaviour
                 }
                 else
                 {
+                    _CurrentNode.SetActor(null);
                     ACTOR NewActor = new ACTOR();
                     NewActor._CurrentNode = Actor._NextNode;
                     NewActor._NextNode = Actor._NextNode.GetNextNode();
                     NewActor._Actor = Actor._Actor;
                     _Actors[i] = NewActor;
                     Actor = _Actors[i];
+
+                    NewActor._CurrentNode.SetActor(NewActor._Actor);
+
+                    NewActor._CurrentNode.PlayAnimation();
                 }
 
             }
@@ -165,6 +171,8 @@ public class CutSceneManager : MonoBehaviour
             ProgressR = Quaternion.Lerp(CurrentNodeR, TargetNodeR, NodeProgress);
 
             Actor._Actor.transform.rotation = ProgressR;
+
+            
             
         }
 

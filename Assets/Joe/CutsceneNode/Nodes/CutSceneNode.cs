@@ -18,6 +18,9 @@ public class CutSceneNode : MonoBehaviour
     [SerializeField] private bool _PauseOnReach;
     [SerializeField] private GameObject _Actor;
 
+    //[SerializeField] private Animation _Animation;
+    [SerializeField] private string _AnimationStringToPlay;
+
     private CutSceneManager _Manager;
 
     // Start is called before the first frame update
@@ -43,6 +46,15 @@ public class CutSceneNode : MonoBehaviour
         _Calls.Invoke();
     }
 
+    public void PlayAnimation()
+    {
+        if (_Actor.GetComponent<Animator>())
+        {
+            _Actor.GetComponent<Animator>().Play(_AnimationStringToPlay);
+
+        }
+    }
+
     public bool CanContinue()
     {
         if (!_Trigger)
@@ -50,7 +62,7 @@ public class CutSceneNode : MonoBehaviour
             return true;
         }
         return _Trigger.IsTriggered();
-            
+
     }
 
     public bool GetPauseOnReach()
@@ -61,5 +73,15 @@ public class CutSceneNode : MonoBehaviour
     public GameObject GetActor()
     {
         return _Actor;
+    }
+
+    public void SetActor(GameObject Actor)
+    {
+        _Actor = Actor;
+    }
+
+    public string GetAnimationString()
+    {
+        return _AnimationStringToPlay;
     }
 }
