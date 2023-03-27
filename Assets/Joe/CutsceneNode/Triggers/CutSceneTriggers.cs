@@ -1,4 +1,4 @@
-using System.Collections;
+    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -50,6 +50,7 @@ public class CutSceneTriggers : MonoBehaviour
             if (_StartTimer < 0)
             {
                 _StartTimer = -1;
+                _IsTriggered = true;
                 _TriggerFunctions.Invoke();
                 _NumOfTimesCanTrigger--;
             }
@@ -60,7 +61,7 @@ public class CutSceneTriggers : MonoBehaviour
     {
         if (_NumOfTimesCanTrigger > 0)
         {
-            _IsTriggered = Trigger;
+            
             if (Trigger)
             {
                 if (_OnTimer)
@@ -71,6 +72,7 @@ public class CutSceneTriggers : MonoBehaviour
                 }
                 else
                 {
+                    _IsTriggered = Trigger;
                     _TriggerFunctions.Invoke();
                     _NumOfTimesCanTrigger--;
                 }
