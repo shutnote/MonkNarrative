@@ -17,12 +17,17 @@ public class CutSceneTriggers : MonoBehaviour
 
     [SerializeField] private UnityEvent _TriggerFunctions;
 
+    [SerializeField] private bool _OnTimer;
+    [SerializeField] private float _Countdown;
+
+    private float _StartTimer;
+
     private bool _IsTriggered;
 
     public void Start()
     {
         transform.GetChild(0).gameObject.SetActive(false);
-        
+        _StartTimer = -1;
     }
 
     public void Awake()
@@ -36,6 +41,21 @@ public class CutSceneTriggers : MonoBehaviour
 
     }
 
+    public void FixedUpdate()
+    {
+        if(_OnTimer && _StartTimer > 0)
+        {
+            Debug.Log(_StartTimer);
+            _StartTimer -= Time.deltaTime;
+            if (_StartTimer < 0)
+            {
+                _StartTimer = -1;
+                _TriggerFunctions.Invoke();
+                _NumOfTimesCanTrigger--;
+            }
+        }
+    }
+
     public void Trigger(bool Trigger)
     {
         if (_NumOfTimesCanTrigger > 0)
@@ -43,8 +63,19 @@ public class CutSceneTriggers : MonoBehaviour
             _IsTriggered = Trigger;
             if (Trigger)
             {
-                _TriggerFunctions.Invoke();
-                _NumOfTimesCanTrigger--;
+                if (_OnTimer)
+                {
+                    Debug.Log(this.name + ": Started Countdown");
+                    _StartTimer = _Countdown;
+                    return;
+                }
+                else
+                {
+                    _TriggerFunctions.Invoke();
+                    _NumOfTimesCanTrigger--;
+                }
+
+                
             }
             
             return;
