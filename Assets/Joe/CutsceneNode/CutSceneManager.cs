@@ -27,6 +27,7 @@ public class CutSceneManager : MonoBehaviour
     private bool _AlreadyTriggered;
     private CutSceneNode _InitNode;
     private bool _ContinueCamera;
+    private CutSceneNode _ActorBlocking;
 
     [SerializeField] private bool _IsActive;
 
@@ -50,7 +51,8 @@ public class CutSceneManager : MonoBehaviour
             //_CurrentNode = transform.GetChild(0).GetChild(0).GetComponent<CutSceneNode>();
             _CurrentNode.CallFunctions();
         }
-        
+        _ActorBlocking = null;
+
         _IsActive = true;
         GameObject.Find("Player").GetComponent<PlayerManager>().ToggleControl(false);
         _Actors = new List<ACTOR> { };
@@ -68,6 +70,16 @@ public class CutSceneManager : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
+        //Check if not null
+        if (_ActorBlocking != null)
+        {
+            //Can continue?
+            if (!_ActorBlocking.CanContinue())
+            {
+                return;
+            }
+            _ActorBlocking = null;
+        }
         if (!_IsActive || _Paused || (!_CurrentNode.CanContinue() && !_AlreadyTriggered))
         {
             return;
@@ -85,7 +97,7 @@ public class CutSceneManager : MonoBehaviour
         Quaternion TargetNodeR;
         Quaternion ProgressR;
 
-        _CurrentTick++;
+        
         _AlreadyTriggered = true;
         if (_ContinueCamera)
         {
@@ -133,7 +145,13 @@ public class CutSceneManager : MonoBehaviour
         
         for (int i = 0; i < _Actors.Count; i++)
         {
+            
             ACTOR Actor = _Actors[i];
+            if (!Actor._CurrentNode.CanContinue())
+            {
+                _ActorBlocking = Actor._CurrentNode;
+                return;
+            }
             if (_CurrentTick >= Actor._NextNode.GetTick())
             {
                 if (!Actor._NextNode.GetNextNode())
@@ -153,7 +171,12 @@ public class CutSceneManager : MonoBehaviour
 
                     NewActor._CurrentNode.SetActor(NewActor._Actor);
 
+                    
+
+                    NewActor._CurrentNode.CallFunctions();
+
                     NewActor._CurrentNode.PlayAnimation();
+
                 }
 
             }
@@ -175,7 +198,7 @@ public class CutSceneManager : MonoBehaviour
             
             
         }
-
+        _CurrentTick++;
     }
 
     public void TogglePause()
