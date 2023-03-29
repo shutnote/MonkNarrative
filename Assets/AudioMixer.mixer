@@ -14,6 +14,20 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!244 &-4273594651931440966
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 87a3d3cfa2d8bff48ad2ca82f4119355
+  m_EffectName: Attenuation
+  m_MixLevel: 6b935da934bd0a547bdb9336923ff057
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!243 &-4119682231058865766
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -136,6 +150,8 @@ AudioMixerController:
   m_ExposedParameters:
   - guid: f07365291f2c1b848b7e2cccde820670
     name: AmbientVolume
+  - guid: 20541f76af5d2a543b99d7234a7ff7bb
+    name: AmbientTwoVolume
   - guid: 3ae08809103dafe45a0cb330873dbef8
     name: DialogueVolume
   - guid: 6fea0bbfe5ed2dc489b6b8b207ae3a04
@@ -151,6 +167,7 @@ AudioMixerController:
     - 81c8343833f9bcb4f9bec6197ad02824
     - 7e33843a7d1674649af0ad812b386641
     - d31738d7f2e78c148a8120fa5e32298c
+    - e443508a659031341b0c4ee7316fd1d8
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -168,6 +185,7 @@ AudioMixerGroupController:
   - {fileID: -2906012754150265996}
   - {fileID: -4080640133763132097}
   - {fileID: -4119682231058865766}
+  - {fileID: 6937971478894128149}
   m_Volume: 6fea0bbfe5ed2dc489b6b8b207ae3a04
   m_Pitch: e53975c37dcc7b64789d5092a5ee5c56
   m_Send: 00000000000000000000000000000000
@@ -201,8 +219,11 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 8938da32b9b7259468544e227f7a22bb
   m_FloatValues:
-    476ffff675f9c5745b87c2f2b20534e6: 1.3
-    f07365291f2c1b848b7e2cccde820670: -19.551434
+    1bd9d3c08716f7d41a05eb94b673d1a9: 0.04171297
+    20541f76af5d2a543b99d7234a7ff7bb: -29.718573
+    476ffff675f9c5745b87c2f2b20534e6: 1.3554516
+    f07365291f2c1b848b7e2cccde820670: -20.228453
+    6fea0bbfe5ed2dc489b6b8b207ae3a04: 20
   m_TransitionOverrides: {}
 --- !u!244 &4074123035325135319
 AudioMixerEffectController:
@@ -218,3 +239,22 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!243 &6937971478894128149
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: AmbientTwo
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: e443508a659031341b0c4ee7316fd1d8
+  m_Children: []
+  m_Volume: 20541f76af5d2a543b99d7234a7ff7bb
+  m_Pitch: a81e9b73cf7307848b63fa9599af1bce
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -4273594651931440966}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0

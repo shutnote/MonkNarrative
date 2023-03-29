@@ -8,10 +8,17 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance;
     public AudioMixer mixer;
 
-    public List<AudioSourceController> audioSources;
+    [SerializeField] List<AudioSourceController> BedroomSources;
+    [SerializeField] List<AudioSourceController> LibraryOneSources;
+    [SerializeField] List<AudioSourceController> LibraryTwoSources;
+    [SerializeField] List<AudioSourceController> CloisterSources;
 
-    public List<AudioClip> footstepSoundsStone;
-    public List<AudioClip> footstepSoundsSoil;
+
+    private List<AudioSourceController> audioSources;
+    
+
+    [SerializeField] List<AudioClip> footstepSoundsStone;
+    [SerializeField] List<AudioClip> footstepSoundsSoil;
 
     public AudioSourceController jeremusController;
 
@@ -21,6 +28,8 @@ public class AudioManager : MonoBehaviour
     private AudioMixerGroup dialogueGroup;
     [SerializeField]
     private AudioMixerGroup ambientGroup;
+    [SerializeField]
+    private AudioMixerGroup ambientTwoGroup;
     [SerializeField]
     private AudioMixerGroup sfxGroup;
 
@@ -40,8 +49,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        PlayAll(ambientGroup);
-        PlayAll(sfxGroup);
+
     }
 
     public void PlayRandomFootstep(List<AudioClip>footstepSounds)
@@ -52,24 +60,22 @@ public class AudioManager : MonoBehaviour
     }
 
     //just play all ready clips on this channel
-    public void PlayAll(AudioMixerGroup mixerGroup)
+    public void PlayAll()
     {
         foreach (var audioSource in audioSources)
         {
             if (!audioSource.IsPlaying())
             {
-                if(audioSource.mixerGroup==mixerGroup)
-                    audioSource.Play();
+                audioSource.Play();
             }
         }
     }
 
     //specify a clip and play on this channel 
-    public void PlayAll(AudioClip clip, AudioMixerGroup mixerGroup)
+    public void PlayAll(AudioClip clip)
     {
         foreach (var audioSource in audioSources)
         {
-            if (audioSource.mixerGroup != mixerGroup) continue;
             if (!audioSource.IsPlaying())
             {
 
@@ -101,6 +107,15 @@ public class AudioManager : MonoBehaviour
     {
         StartCoroutine(FadeMixerGroupCoroutine(mixerGroup, targetVolume, duration));
     }
+
+    public void FadeAllSources( float duration)
+    {
+        foreach (var source in audioSources)
+        {
+            source.FadeIn(duration);
+        }
+    }
+
 
     private IEnumerator FadeMixerGroupCoroutine(AudioMixerGroup mixerGroup, float targetVolume, float duration)
     {
@@ -195,4 +210,18 @@ public class AudioManager : MonoBehaviour
             }
         }
     }
+
+    public void SwitchToLibraryOneAudio() => audioSources = LibraryOneSources;
+
+    public void SwitchToLibraryTwoAudio() => audioSources = LibraryTwoSources;
+
+    public void SwitchToCloisterAudio() => audioSources = CloisterSources;
+
+    public void SetSFXVolume(float volume) => mixer.SetFloat(sfxGroup + "Volume", volume);
+    public void SetMusicVolume(float volume) => mixer.SetFloat(musicGroup + "Volume", volume);
+    public void SetDialogueVolume(float volume) => mixer.SetFloat(dialogueGroup + "Volume", volume);
+    public void SetAmbientVolume(float volume) => mixer.SetFloat(ambientGroup + "Volume", volume);
+
+    public void SetAmbientTwoVolume(float volume) => mixer.SetFloat(ambientTwoGroup + "Volume", volume);
+
 }

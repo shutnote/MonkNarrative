@@ -224,6 +224,7 @@ MonoBehaviour:
   audioSources:
   - {fileID: 1425646832}
   - {fileID: 504556394}
+  - {fileID: 1230311165}
   footstepSoundsStone: []
   footstepSoundsSoil: []
   jeremusController: {fileID: 0}
@@ -630,6 +631,56 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1550671398e543842ab7d19df216ded2, type: 3}
+--- !u!1 &1230311164
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1230311166}
+  - component: {fileID: 1230311165}
+  m_Layer: 0
+  m_Name: Birds (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1230311165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230311164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e82caa2608497524ab2fc1d1dfab947f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixerGroup: {fileID: -4119682231058865766, guid: fd77b5e66541b694d9f04e8828c2551d, type: 2}
+  startingVolume: 1
+  startingPitch: 1
+  loop: 1
+  spatialBlend: 0
+  startClip: {fileID: 8300000, guid: 48f2ba9646f4376498af1009a98d7c09, type: 3}
+--- !u!4 &1230311166
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230311164}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.0800407, y: -15.088602, z: 42.96552}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1359294692 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 401761964854674926, guid: 437c66b8734cb4f409990e2f291d542a, type: 3}
@@ -658,6 +709,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1425646833}
   - component: {fileID: 1425646832}
+  - component: {fileID: 1425646834}
   m_Layer: 0
   m_Name: Wind
   m_TagString: Untagged
@@ -678,11 +730,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mixerGroup: {fileID: -4119682231058865766, guid: fd77b5e66541b694d9f04e8828c2551d, type: 2}
-  startingVolume: 1
+  startingVolume: 3
   startingPitch: 1
   loop: 1
   spatialBlend: 0.5
-  startClip: {fileID: 8300000, guid: 48f2ba9646f4376498af1009a98d7c09, type: 3}
+  startClip: {fileID: 8300000, guid: 9283f522d19be6344a3249503e2d4e80, type: 3}
 --- !u!4 &1425646833
 Transform:
   m_ObjectHideFlags: 0
@@ -698,6 +750,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1425646834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425646830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e82caa2608497524ab2fc1d1dfab947f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixerGroup: {fileID: -2906012754150265996, guid: fd77b5e66541b694d9f04e8828c2551d, type: 2}
+  startingVolume: 1
+  startingPitch: 1
+  loop: 0
+  spatialBlend: 0
+  startClip: {fileID: 8300000, guid: 48f2ba9646f4376498af1009a98d7c09, type: 3}
 --- !u!1001 &1632644839
 PrefabInstance:
   m_ObjectHideFlags: 0
