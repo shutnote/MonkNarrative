@@ -117,10 +117,10 @@ AnimatorStateMachine:
     m_Position: {x: 430, y: 20, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6142528247786656608}
-    m_Position: {x: 700, y: 290, z: 0}
+    m_Position: {x: 710, y: 200, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -9121215115146110016}
-    m_Position: {x: 500, y: 410, z: 0}
+    m_Position: {x: 630, y: 350, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3992120999554181568}
     m_Position: {x: 280, y: 320, z: 0}
@@ -141,6 +141,8 @@ AnimatorStateMachine:
   - {fileID: -150853950165800816}
   - {fileID: 3560889184523652005}
   - {fileID: -293204603868355343}
+  - {fileID: 155671055599618233}
+  - {fileID: -1317651204320485491}
   m_EntryTransitions:
   - {fileID: -1264594429879656169}
   - {fileID: -7275750183381856264}
@@ -206,6 +208,28 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1101 &-1317651204320485491
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions: []
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -2783776555624206883}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.75
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!1109 &-1264594429879656169
 AnimatorTransition:
   m_ObjectHideFlags: 1
@@ -388,6 +412,28 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
+--- !u!1101 &155671055599618233
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions: []
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -9121215115146110016}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.75
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!1101 &1551377838168447119
 AnimatorStateTransition:
   m_ObjectHideFlags: 1

@@ -20,6 +20,8 @@ public class CutSceneNode : MonoBehaviour
 
     //[SerializeField] private Animation _Animation;
     [SerializeField] private string _AnimationStringToPlay;
+    [SerializeField] private float transitionWeight;
+    [SerializeField] bool blendAnim;
 
     private CutSceneManager _Manager;
 
@@ -51,8 +53,16 @@ public class CutSceneNode : MonoBehaviour
         if (_Actor.GetComponent<Animator>())
         {
             if (_AnimationStringToPlay == "") return;
-            _Actor.GetComponent<Animator>().StopPlayback();
-            _Actor.GetComponent<Animator>().Play(_AnimationStringToPlay);
+
+            if(blendAnim)
+            {
+                _Actor.GetComponent<Animator>().CrossFade(_AnimationStringToPlay, transitionWeight==0? 0.2f:transitionWeight, 0);
+            }
+            else
+            {
+                _Actor.GetComponent<Animator>().StopPlayback();
+                _Actor.GetComponent<Animator>().Play(_AnimationStringToPlay);
+            }
 
         }
     }
