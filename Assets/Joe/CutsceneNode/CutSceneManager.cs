@@ -171,8 +171,6 @@ public class CutSceneManager : MonoBehaviour
 
                     NewActor._CurrentNode.SetActor(NewActor._Actor);
 
-                    
-
                     NewActor._CurrentNode.CallFunctions();
 
                     NewActor._CurrentNode.PlayAnimation();

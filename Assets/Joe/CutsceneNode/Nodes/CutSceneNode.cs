@@ -50,6 +50,7 @@ public class CutSceneNode : MonoBehaviour
     {
         if (_Actor.GetComponent<Animator>())
         {
+            _Actor.GetComponent<Animation>().Stop();
             _Actor.GetComponent<Animator>().Play(_AnimationStringToPlay);
 
         }
