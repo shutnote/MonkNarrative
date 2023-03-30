@@ -261,7 +261,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5968184723753065025, guid: 0c6b93a8bb0e65643a02eebd07b4ba8f, type: 3}
       propertyPath: _Tick
-      value: 1400
+      value: 2200
       objectReference: {fileID: 0}
     - target: {fileID: -5968184723753065025, guid: 0c6b93a8bb0e65643a02eebd07b4ba8f, type: 3}
       propertyPath: _NextNode
@@ -269,11 +269,11 @@ PrefabInstance:
       objectReference: {fileID: 1646761157}
     - target: {fileID: 5828140791452984542, guid: 0c6b93a8bb0e65643a02eebd07b4ba8f, type: 3}
       propertyPath: m_Name
-      value: CameraMove (2)
+      value: Node7_CameraMove (2)
       objectReference: {fileID: 0}
     - target: {fileID: 6563461333754353330, guid: 0c6b93a8bb0e65643a02eebd07b4ba8f, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6563461333754353330, guid: 0c6b93a8bb0e65643a02eebd07b4ba8f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -471,7 +471,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5968184723753065025, guid: 0c6b93a8bb0e65643a02eebd07b4ba8f, type: 3}
       propertyPath: _Tick
-      value: 1700
+      value: 2500
       objectReference: {fileID: 0}
     - target: {fileID: -5968184723753065025, guid: 0c6b93a8bb0e65643a02eebd07b4ba8f, type: 3}
       propertyPath: _NextNode
@@ -479,11 +479,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5828140791452984542, guid: 0c6b93a8bb0e65643a02eebd07b4ba8f, type: 3}
       propertyPath: m_Name
-      value: CameraMove (4)
+      value: Node9_CameraMove (4)
       objectReference: {fileID: 0}
     - target: {fileID: 6563461333754353330, guid: 0c6b93a8bb0e65643a02eebd07b4ba8f, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6563461333754353330, guid: 0c6b93a8bb0e65643a02eebd07b4ba8f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1868,7 +1868,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5968184723753065025, guid: 0c6b93a8bb0e65643a02eebd07b4ba8f, type: 3}
       propertyPath: _Tick
-      value: 1100
+      value: 1900
       objectReference: {fileID: 0}
     - target: {fileID: -5968184723753065025, guid: 0c6b93a8bb0e65643a02eebd07b4ba8f, type: 3}
       propertyPath: _NextNode
@@ -1876,11 +1876,11 @@ PrefabInstance:
       objectReference: {fileID: 856784996}
     - target: {fileID: 5828140791452984542, guid: 0c6b93a8bb0e65643a02eebd07b4ba8f, type: 3}
       propertyPath: m_Name
-      value: CameraMove (1)
+      value: Node6_CameraMove (1)
       objectReference: {fileID: 0}
     - target: {fileID: 6563461333754353330, guid: 0c6b93a8bb0e65643a02eebd07b4ba8f, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6563461333754353330, guid: 0c6b93a8bb0e65643a02eebd07b4ba8f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2422,11 +2422,11 @@ PrefabInstance:
       objectReference: {fileID: 245773117}
     - target: {fileID: 5828140791452984542, guid: 0c6b93a8bb0e65643a02eebd07b4ba8f, type: 3}
       propertyPath: m_Name
-      value: CameraWaitBeginining
+      value: Node2_CameraWaitBeginining
       objectReference: {fileID: 0}
     - target: {fileID: 6563461333754353330, guid: 0c6b93a8bb0e65643a02eebd07b4ba8f, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6563461333754353330, guid: 0c6b93a8bb0e65643a02eebd07b4ba8f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2970,7 +2970,7 @@ PrefabInstance:
       objectReference: {fileID: 162869608}
     - target: {fileID: 5828140791452984542, guid: 0c6b93a8bb0e65643a02eebd07b4ba8f, type: 3}
       propertyPath: m_Name
-      value: CameraNode
+      value: Node1_CameraNode
       objectReference: {fileID: 0}
     - target: {fileID: 6563461333754353330, guid: 0c6b93a8bb0e65643a02eebd07b4ba8f, type: 3}
       propertyPath: m_RootOrder
@@ -3445,7 +3445,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5968184723753065025, guid: 0c6b93a8bb0e65643a02eebd07b4ba8f, type: 3}
       propertyPath: _Tick
-      value: 800
+      value: 1500
       objectReference: {fileID: 0}
     - target: {fileID: -5968184723753065025, guid: 0c6b93a8bb0e65643a02eebd07b4ba8f, type: 3}
       propertyPath: _NextNode
@@ -3453,11 +3453,11 @@ PrefabInstance:
       objectReference: {fileID: 1194986958}
     - target: {fileID: 5828140791452984542, guid: 0c6b93a8bb0e65643a02eebd07b4ba8f, type: 3}
       propertyPath: m_Name
-      value: CameraWaitHall
+      value: Node4_CameraWaitHall
       objectReference: {fileID: 0}
     - target: {fileID: 6563461333754353330, guid: 0c6b93a8bb0e65643a02eebd07b4ba8f, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6563461333754353330, guid: 0c6b93a8bb0e65643a02eebd07b4ba8f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4487,7 +4487,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5968184723753065025, guid: 0c6b93a8bb0e65643a02eebd07b4ba8f, type: 3}
       propertyPath: _Tick
-      value: 1600
+      value: 2400
       objectReference: {fileID: 0}
     - target: {fileID: -5968184723753065025, guid: 0c6b93a8bb0e65643a02eebd07b4ba8f, type: 3}
       propertyPath: _NextNode
@@ -4495,11 +4495,11 @@ PrefabInstance:
       objectReference: {fileID: 1910666233}
     - target: {fileID: 5828140791452984542, guid: 0c6b93a8bb0e65643a02eebd07b4ba8f, type: 3}
       propertyPath: m_Name
-      value: CameraMove (3)
+      value: Node8_CameraMove (3)
       objectReference: {fileID: 0}
     - target: {fileID: 6563461333754353330, guid: 0c6b93a8bb0e65643a02eebd07b4ba8f, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6563461333754353330, guid: 0c6b93a8bb0e65643a02eebd07b4ba8f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4713,11 +4713,11 @@ PrefabInstance:
       objectReference: {fileID: 1922030671}
     - target: {fileID: 5828140791452984542, guid: 0c6b93a8bb0e65643a02eebd07b4ba8f, type: 3}
       propertyPath: m_Name
-      value: CameraMove (5)
+      value: Node10_CameraMove (5)
       objectReference: {fileID: 0}
     - target: {fileID: 6563461333754353330, guid: 0c6b93a8bb0e65643a02eebd07b4ba8f, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6563461333754353330, guid: 0c6b93a8bb0e65643a02eebd07b4ba8f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5060,7 +5060,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5968184723753065025, guid: 0c6b93a8bb0e65643a02eebd07b4ba8f, type: 3}
       propertyPath: _Tick
-      value: 350
+      value: 550
       objectReference: {fileID: 0}
     - target: {fileID: -5968184723753065025, guid: 0c6b93a8bb0e65643a02eebd07b4ba8f, type: 3}
       propertyPath: _NextNode
@@ -5068,11 +5068,11 @@ PrefabInstance:
       objectReference: {fileID: 1851934668}
     - target: {fileID: 5828140791452984542, guid: 0c6b93a8bb0e65643a02eebd07b4ba8f, type: 3}
       propertyPath: m_Name
-      value: CameraNodeWindow
+      value: Node3_Hall
       objectReference: {fileID: 0}
     - target: {fileID: 6563461333754353330, guid: 0c6b93a8bb0e65643a02eebd07b4ba8f, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6563461333754353330, guid: 0c6b93a8bb0e65643a02eebd07b4ba8f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5334,6 +5334,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1455133410}
+  - {fileID: 162869609}
   - {fileID: 245773118}
   - {fileID: 1851934669}
   - {fileID: 1194986957}
@@ -5342,7 +5343,6 @@ Transform:
   - {fileID: 1922030672}
   - {fileID: 1910666234}
   - {fileID: 1646761156}
-  - {fileID: 162869609}
   m_Father: {fileID: 2007090319}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.662}
@@ -5898,7 +5898,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5968184723753065025, guid: 0c6b93a8bb0e65643a02eebd07b4ba8f, type: 3}
       propertyPath: _Tick
-      value: 1000
+      value: 1800
       objectReference: {fileID: 0}
     - target: {fileID: -5968184723753065025, guid: 0c6b93a8bb0e65643a02eebd07b4ba8f, type: 3}
       propertyPath: _NextNode
@@ -5906,11 +5906,11 @@ PrefabInstance:
       objectReference: {fileID: 1419222228}
     - target: {fileID: 5828140791452984542, guid: 0c6b93a8bb0e65643a02eebd07b4ba8f, type: 3}
       propertyPath: m_Name
-      value: CameraMove
+      value: Node5_CameraMove
       objectReference: {fileID: 0}
     - target: {fileID: 6563461333754353330, guid: 0c6b93a8bb0e65643a02eebd07b4ba8f, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6563461333754353330, guid: 0c6b93a8bb0e65643a02eebd07b4ba8f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6945,7 +6945,7 @@ MonoBehaviour:
   Jeremus: {fileID: 1653394687}
   Benedict: {fileID: 0}
   musicGroup: {fileID: -4080640133763132097, guid: fd77b5e66541b694d9f04e8828c2551d, type: 2}
-  dialogueGroup: {fileID: -4119682231058865766, guid: fd77b5e66541b694d9f04e8828c2551d, type: 2}
+  dialogueGroup: {fileID: -2433438031595429630, guid: fd77b5e66541b694d9f04e8828c2551d, type: 2}
   ambientGroup: {fileID: -4119682231058865766, guid: fd77b5e66541b694d9f04e8828c2551d, type: 2}
   ambientTwoGroup: {fileID: 6937971478894128149, guid: fd77b5e66541b694d9f04e8828c2551d, type: 2}
   sfxGroup: {fileID: -2906012754150265996, guid: fd77b5e66541b694d9f04e8828c2551d, type: 2}
