@@ -22,7 +22,8 @@ public class CharactersDialogue : MonoBehaviour
     {
         dialogueIndex++;
         Debug.Log(dialogueIndex);
-        return activeDialogueList[dialogueIndex-1];
+        int clipToCall = dialogueIndex - 1;
+        return activeDialogueList[clipToCall];
     }
 
     public void SwitchDialogueList(int index)
