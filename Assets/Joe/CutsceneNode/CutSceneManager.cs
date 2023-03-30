@@ -61,6 +61,7 @@ public class CutSceneManager : MonoBehaviour
             ACTOR Actor = new ACTOR();
             Actor._Actor = ActorNodeParent.GetActor();
             Actor._CurrentNode = ActorNodeParent;
+            Actor._CurrentNode.CallFunctions();
             Actor._NextNode = ActorNodeParent.GetNextNode();
             _Actors.Add(Actor);
         }
