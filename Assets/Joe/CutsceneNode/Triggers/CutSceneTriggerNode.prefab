@@ -129,13 +129,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 674bf7de13f4e274bb74829bbe1934c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Trigger: 0
+  _Trigger: 3
   _ButtonInput: 
   _ZoneTag: Player
   _NumOfTimesCanTrigger: 1
   _TriggerFunctions:
     m_PersistentCalls:
       m_Calls: []
+  _OnTimer: 0
+  _Countdown: 0
 --- !u!65 &7373201479978163841
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public enum POTTRIGGERS { BUTTON, ZONE, ONLOADED };
+public enum POTTRIGGERS { BUTTON, ZONE, ONLOADED, NONE };
 
 public class CutSceneTriggers : MonoBehaviour
 {
@@ -45,7 +45,6 @@ public class CutSceneTriggers : MonoBehaviour
     {
         if(_OnTimer && _StartTimer > 0)
         {
-            Debug.Log(_StartTimer);
             _StartTimer -= Time.deltaTime;
             if (_StartTimer < 0)
             {
@@ -76,8 +75,6 @@ public class CutSceneTriggers : MonoBehaviour
                     _TriggerFunctions.Invoke();
                     _NumOfTimesCanTrigger--;
                 }
-
-                
             }
             
             return;
@@ -98,6 +95,8 @@ public class CutSceneTriggers : MonoBehaviour
             case POTTRIGGERS.ZONE:
                 Trigger(true);
                 break;
+            case POTTRIGGERS.NONE:
+                return _IsTriggered;
         }
 
         return _IsTriggered;
