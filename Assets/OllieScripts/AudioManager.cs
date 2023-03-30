@@ -51,7 +51,7 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         audioSources = LibraryTwoSources;
-        PlayAll();
+        //PlayAll();
     }
 
     public void PlayRandomFootstep(List<AudioClip>footstepSounds)
@@ -202,6 +202,33 @@ public class AudioManager : MonoBehaviour
             {
                 audioSource.SetClip(clip);
                 audioSource.SetMixerGroup(musicGroup);
+                audioSource.Play();
+                return;
+            }
+        }
+    }
+
+    public void PlayAllAmbientTwo()
+    {
+        foreach (var audioSource in audioSources)
+        {
+            if (!audioSource.IsPlaying())
+            {
+
+                if (audioSource.mixerGroup != ambientTwoGroup) continue;
+                audioSource.Play();
+                return;
+            }
+        }
+    }
+
+    public void PlayAllAmbient()
+    {
+        foreach (var audioSource in audioSources)
+        {
+            if (!audioSource.IsPlaying())
+            {
+                if (audioSource.mixerGroup != ambientGroup) continue;
                 audioSource.Play();
                 return;
             }

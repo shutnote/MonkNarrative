@@ -22,7 +22,7 @@ public class CharactersDialogue : MonoBehaviour
     {
         dialogueIndex++;
         Debug.Log(dialogueIndex);
-        return activeDialogueList[dialogueIndex];
+        return activeDialogueList[dialogueIndex-1];
     }
 
     public void SwitchDialogueList(int index)
