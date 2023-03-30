@@ -20,7 +20,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] List<AudioClip> footstepSoundsStone;
     [SerializeField] List<AudioClip> footstepSoundsSoil;
 
-    public AudioSourceController jeremusController;
+    public GameObject Jeremus;
+    public GameObject Benedict;
 
     [SerializeField]
     private AudioMixerGroup musicGroup;
@@ -49,14 +50,15 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-
+        audioSources = LibraryTwoSources;
+        PlayAll();
     }
 
     public void PlayRandomFootstep(List<AudioClip>footstepSounds)
     {
         int index = Random.Range(0, footstepSounds.Count);
-        jeremusController.SetClip(footstepSounds[index]);
-        jeremusController.Play();
+        //jeremus.SetClip(footstepSounds[index]);
+        //jeremusController.Play();
     }
 
     //just play all ready clips on this channel
@@ -136,18 +138,13 @@ public class AudioManager : MonoBehaviour
         mixer.SetFloat(mixerGroup.name + "Volume", targetVolume);
     }
 
-    public void PlayDialogue(AudioClip clip)
+    public void PlayDialogue(GameObject character)
     {
-        foreach (var audioSource in audioSources)
-        {
-            if (!audioSource.IsPlaying())
-            {
-                audioSource.SetClip(clip);
-                audioSource.SetMixerGroup(dialogueGroup);
-                audioSource.Play();
-                return;
-            }
-        }
+        AudioClip clip = character.GetComponent<CharactersDialogue>().GetNextDialogueClip();
+        AudioSourceController controller = character.GetComponent<AudioSourceController>();
+        controller.SetMixerGroup(dialogueGroup);
+        controller.SetClip(clip);
+        controller.Play();
     }
 
     public void StopAll()
