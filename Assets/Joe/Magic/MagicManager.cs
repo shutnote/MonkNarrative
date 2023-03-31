@@ -15,7 +15,7 @@ public class MagicManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _Collision = gameObject.AddComponent<CapsuleCollider>();
+        _Collision = gameObject.transform.GetChild(0).gameObject.AddComponent<CapsuleCollider>();
         _Collision.isTrigger = true;
         _Collision.enabled = true;
         _Collision.direction = 2;
@@ -24,8 +24,7 @@ public class MagicManager : MonoBehaviour
         AddNewSpell(new MagicGrowth());
         AddNewSpell(new MagicTaser(transform));
         AddNewSpell(new MagicPush(transform));
-        
-
+        AddNewSpell(new MagicStatis());
     }
 
     protected void AddNewSpell(MagicBasic Spell)

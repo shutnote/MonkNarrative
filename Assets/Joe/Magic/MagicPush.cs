@@ -23,7 +23,7 @@ public class MagicPush : MagicBasic
 
             if (Target.GetComponent<Rigidbody>())
             {
-                Target.GetComponent<Rigidbody>().AddForce(Delta * 1000);
+                Target.GetComponent<Rigidbody>().AddForce(Delta * 350);
             }
 
         }

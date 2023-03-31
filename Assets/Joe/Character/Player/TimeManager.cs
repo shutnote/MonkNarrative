@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GetPushed : MonoBehaviour
+public class TimeManager : MonoBehaviour
 {
+    [SerializeField] private float _TimeScale;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,11 +15,11 @@ public class GetPushed : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Time.timeScale = _TimeScale;
     }
 
-    public void OnPush()
+    public void ChangeTime(float Time)
     {
-        GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, 500));
+        _TimeScale = Time;
     }
 }

@@ -28,31 +28,40 @@ public class CutSceneTriggers : MonoBehaviour
     {
         transform.GetChild(0).gameObject.SetActive(false);
         _StartTimer = -1;
+        _IsTriggered = false;
     }
 
     public void Awake()
     {
-        switch (_Trigger)
+
+        if(_Trigger == POTTRIGGERS.ONLOADED)
         {
-            case POTTRIGGERS.ONLOADED:
-                Trigger(true);
-                break;
+            Trigger(true);
         }
 
     }
 
     public void FixedUpdate()
     {
-        if(_OnTimer && _StartTimer > 0)
+        if(_OnTimer && _StartTimer > 0 && _NumOfTimesCanTrigger > 0)
         {
             _StartTimer -= Time.deltaTime;
-            if (_StartTimer < 0)
+            if (_StartTimer <= 0)
             {
+                //Debug.Log(this.name + ": Timer has finished");
                 _StartTimer = -1;
                 _IsTriggered = true;
                 _TriggerFunctions.Invoke();
                 _NumOfTimesCanTrigger--;
             }
+            else
+            {
+                _IsTriggered = false;
+            }
+        }
+        else
+        {
+            return;
         }
     }
 
@@ -65,7 +74,7 @@ public class CutSceneTriggers : MonoBehaviour
             {
                 if (_OnTimer)
                 {
-                    Debug.Log(this.name + ": Started Countdown");
+                    //Debug.Log(this.name + ": Started Countdown");
                     _StartTimer = _Countdown;
                     return;
                 }
@@ -79,10 +88,6 @@ public class CutSceneTriggers : MonoBehaviour
             
             return;
         }
-        else
-        {
-            _IsTriggered = false;
-        }
     }
 
     public bool IsTriggered()
@@ -91,9 +96,6 @@ public class CutSceneTriggers : MonoBehaviour
         {
             case POTTRIGGERS.BUTTON:
                 Trigger(Input.GetButton(_ButtonInput));
-                break;
-            case POTTRIGGERS.ZONE:
-                Trigger(true);
                 break;
             case POTTRIGGERS.NONE:
                 return _IsTriggered;
@@ -106,17 +108,16 @@ public class CutSceneTriggers : MonoBehaviour
     {
         if(other.tag == _ZoneTag)
         {
-            switch (_Trigger)
+            if(_Trigger == POTTRIGGERS.ZONE)
             {
-                case POTTRIGGERS.ZONE:
-                    Trigger(true);
-                    break;
+                //Debug.Log(other.name + ": Has entered " + this.name);
+                Trigger(true);
             }
             
         }
         else
         {
-            _IsTriggered = false;
+            //_IsTriggered = false;
         }
     }
 
@@ -133,7 +134,7 @@ public class CutSceneTriggers : MonoBehaviour
         }
         else
         {
-            _IsTriggered = false;
+            //_IsTriggered = false;
         }
     }
 
@@ -141,7 +142,10 @@ public class CutSceneTriggers : MonoBehaviour
     {
         if (other.tag == _ZoneTag)
         {
-            Trigger(false);
+            if (_Trigger == POTTRIGGERS.ZONE)
+            {
+                Trigger(false);
+            }
         }
     }
 }
