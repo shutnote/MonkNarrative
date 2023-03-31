@@ -50,7 +50,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        audioSources = LibraryTwoSources;
+        audioSources = LibraryOneSources;
         //PlayAll();
     }
 
