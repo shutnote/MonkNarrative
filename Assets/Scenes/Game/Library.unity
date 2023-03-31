@@ -349,6 +349,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec24f0f42d746a7448eb0d8f0a78c8cb, type: 3}
+--- !u!1 &29986129
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 29986130}
+  m_Layer: 0
+  m_Name: DoorNodes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &29986130
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29986129}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1345059603}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &48279774
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3369,6 +3400,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1867718529790560514, guid: 6fd8fdc9afd3fdd48a7e73cdcec12ec0, type: 3}
   m_PrefabInstance: {fileID: 7458141}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1217339806
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1217339807}
+  m_Layer: 0
+  m_Name: BookNodes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1217339807
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217339806}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1345059603}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1242833254
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3872,6 +3934,8 @@ Transform:
   - {fileID: 1190888716}
   - {fileID: 2136025651}
   - {fileID: 1813346706}
+  - {fileID: 29986130}
+  - {fileID: 1217339807}
   m_Father: {fileID: 1413112983}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3894,6 +3958,8 @@ MonoBehaviour:
   _Player: {fileID: 616342554}
   _ActorNodes:
   - {fileID: 758514571}
+  - {fileID: 87043761}
+  - {fileID: 87043761}
   - {fileID: 87043761}
   _EndingTick: 2000
   _IsActive: 0
