@@ -79,6 +79,7 @@ public class CutSceneManager : MonoBehaviour
             {
                 return;
             }
+           // Debug.Log(_ActorBlocking.name + ": Has finished");
             _ActorBlocking = null;
         }
         if (!_IsActive || _Paused || (!_CurrentNode.CanContinue() && !_AlreadyTriggered))
@@ -87,7 +88,8 @@ public class CutSceneManager : MonoBehaviour
         }
         if(_CurrentTick > _EndingTick)
         {
-            Debug.Log("Ending Cutscene");
+            //Debug.Log("Ending Cutscene");
+            GameObject.Find("Player").GetComponent<PlayerManager>().ToggleControl(true);
             _IsActive = false;
         }
         Vector3 CurrentNode;
@@ -150,6 +152,7 @@ public class CutSceneManager : MonoBehaviour
             ACTOR Actor = _Actors[i];
             if (!Actor._CurrentNode.CanContinue())
             {
+                Debug.Log(Actor._CurrentNode.name + ": Has Paused on trigger");
                 _ActorBlocking = Actor._CurrentNode;
                 return;
             }
@@ -158,11 +161,15 @@ public class CutSceneManager : MonoBehaviour
                 if (!Actor._NextNode.GetNextNode())
                 {
                     _Actors.Remove(Actor);
+                    Actor._CurrentNode.CallFunctions();
+
+                    Actor._CurrentNode.PlayAnimation();
                     continue;
                 }
                 else
                 {
                     _CurrentNode.SetActor(null);
+                    _ActorBlocking = null;
                     ACTOR NewActor = new ACTOR();
                     NewActor._CurrentNode = Actor._NextNode;
                     NewActor._NextNode = Actor._NextNode.GetNextNode();

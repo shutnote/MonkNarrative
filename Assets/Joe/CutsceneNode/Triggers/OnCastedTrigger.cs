@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class GetPushed : MonoBehaviour
+public class OnCastedTrigger : MonoBehaviour
 {
+
+    [SerializeField] private UnityEvent _TriggerFunctions;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,8 +21,9 @@ public class GetPushed : MonoBehaviour
         
     }
 
-    public void OnPush()
+    public void OnCasted()
     {
-        GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, 500));
+        Debug.Log("I've been casteded");
+        _TriggerFunctions.Invoke();
     }
 }
