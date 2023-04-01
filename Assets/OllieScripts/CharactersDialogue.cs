@@ -43,5 +43,14 @@ public class CharactersDialogue : MonoBehaviour
         dialogueIndex = 0;
     }
 
+    public void SwitchActiveDialogueToCLoister()
+    {
+        activeDialogueList = cloisterDialogue;
+    }
+
+    public void SwitchActiveDialogueToCutsceneTwo()
+    {
+        activeDialogueList = CutsceneTwoDialogue;
+    }
     
 }
