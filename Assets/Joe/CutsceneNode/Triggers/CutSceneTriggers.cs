@@ -17,6 +17,8 @@ public class CutSceneTriggers : MonoBehaviour
 
     [SerializeField] private UnityEvent _TriggerFunctions;
 
+    [SerializeField] private GameObject _NextTrigger;
+
     [SerializeField] private bool _OnTimer;
     [SerializeField] private float _Countdown;
 
@@ -27,8 +29,12 @@ public class CutSceneTriggers : MonoBehaviour
     public void Start()
     {
         transform.GetChild(0).gameObject.SetActive(false);
-        _StartTimer = -1;
         _IsTriggered = false;
+
+        if (_NextTrigger)
+        {
+            _NextTrigger.SetActive(false);
+        }
     }
 
     public void Awake()
@@ -43,8 +49,10 @@ public class CutSceneTriggers : MonoBehaviour
 
     public void FixedUpdate()
     {
-        if(_OnTimer && _StartTimer > 0 && _NumOfTimesCanTrigger > 0)
+        Debug.Log(this.name + " " + _OnTimer + " " + _StartTimer + " " + _NumOfTimesCanTrigger);
+        if (_OnTimer && _StartTimer > 0 && _NumOfTimesCanTrigger > 0)
         {
+            Debug.Log(this.name + ": is counting down");
             _StartTimer -= Time.deltaTime;
             if (_StartTimer <= 0)
             {
@@ -53,6 +61,10 @@ public class CutSceneTriggers : MonoBehaviour
                 _IsTriggered = true;
                 _TriggerFunctions.Invoke();
                 _NumOfTimesCanTrigger--;
+                if (_NextTrigger) {
+                    _NextTrigger.SetActive(true);
+                    _NextTrigger.GetComponent<CutSceneTriggers>().Trigger(true);
+                }
             }
             else
             {
@@ -74,7 +86,7 @@ public class CutSceneTriggers : MonoBehaviour
             {
                 if (_OnTimer)
                 {
-                    //Debug.Log(this.name + ": Started Countdown");
+                    Debug.Log(this.name + ": Started Countdown");
                     _StartTimer = _Countdown;
                     return;
                 }
@@ -83,6 +95,11 @@ public class CutSceneTriggers : MonoBehaviour
                     _IsTriggered = Trigger;
                     _TriggerFunctions.Invoke();
                     _NumOfTimesCanTrigger--;
+                    if (_NextTrigger)
+                    {
+                        _NextTrigger.SetActive(true);
+                        _NextTrigger.GetComponent<CutSceneTriggers>().Trigger(true);
+                    }
                 }
             }
             
