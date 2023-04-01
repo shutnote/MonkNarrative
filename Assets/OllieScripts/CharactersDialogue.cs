@@ -14,8 +14,8 @@ public class CharactersDialogue : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //activeDialogueList = CutsceneOneDialogue;
-        activeDialogueList = CutsceneTwoDialogue;
+        activeDialogueList = CutsceneOneDialogue;
+        //activeDialogueList = CutsceneTwoDialogue;
     }
 
     public AudioClip GetNextDialogueClip()
@@ -43,5 +43,14 @@ public class CharactersDialogue : MonoBehaviour
         dialogueIndex = 0;
     }
 
+    public void SwitchActiveDialogueToCLoister()
+    {
+        activeDialogueList = cloisterDialogue;
+    }
+
+    public void SwitchActiveDialogueToCutsceneTwo()
+    {
+        activeDialogueList = CutsceneTwoDialogue;
+    }
     
 }

@@ -25,6 +25,9 @@ public class CutSceneNode : MonoBehaviour
 
     private CutSceneManager _Manager;
 
+    private float animSpeedBeforePause;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,6 +60,7 @@ public class CutSceneNode : MonoBehaviour
             if(blendAnim)
             {
                 _Actor.GetComponent<Animator>().CrossFade(_AnimationStringToPlay, transitionWeight==0? 0.2f:transitionWeight, 0);
+                
             }
             else
             {
@@ -65,6 +69,16 @@ public class CutSceneNode : MonoBehaviour
             }
 
         }
+    }
+
+    public void PauseAnimation()
+    {
+        _Actor.GetComponent<Animator>().speed = 0;
+    }
+    
+    public void ResumeAnimation()
+    {
+        _Actor.GetComponent<Animator>().speed = 1;
     }
 
     public bool CanContinue()
