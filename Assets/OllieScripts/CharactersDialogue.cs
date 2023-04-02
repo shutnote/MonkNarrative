@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class CharactersDialogue : MonoBehaviour
 {
-    [SerializeField] List<AudioClip> cloisterDialogue;
     [SerializeField] List<AudioClip> CutsceneOneDialogue;
+    [SerializeField] List<AudioClip> cloisterDialogue;
     [SerializeField] List<AudioClip> CutsceneTwoDialogue;
+
+    [SerializeField] int DialougeToUse;
 
     List<AudioClip> activeDialogueList;
     int dialogueIndex=0;
@@ -14,7 +16,8 @@ public class CharactersDialogue : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        activeDialogueList = CutsceneOneDialogue;
+        SwitchDialogueList(DialougeToUse);
+        //activeDialogueList = CutsceneOneDialogue;
         //activeDialogueList = CutsceneTwoDialogue;
     }
 
@@ -41,6 +44,11 @@ public class CharactersDialogue : MonoBehaviour
                 break;
         }
         dialogueIndex = 0;
+    }
+
+    public void SwitchActiveDialogueToCutsceneOne()
+    {
+        activeDialogueList = CutsceneOneDialogue;
     }
 
     public void SwitchActiveDialogueToCLoister()
