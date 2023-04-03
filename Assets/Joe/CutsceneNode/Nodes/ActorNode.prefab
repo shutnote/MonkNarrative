@@ -138,6 +138,9 @@ MonoBehaviour:
   _Trigger: {fileID: 0}
   _PauseOnReach: 0
   _Actor: {fileID: 0}
+  _AnimationStringToPlay: 
+  transitionWeight: 0
+  blendAnim: 0
 --- !u!1 &7647299016360134250
 GameObject:
   m_ObjectHideFlags: 0

@@ -123,6 +123,16 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &24036272 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2826149527210983126, guid: 258f2659c33593b409c9a3c8e458dfe2, type: 3}
+  m_PrefabInstance: {fileID: 2826149526109072326}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &36273296 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3867689391046005664, guid: 258f2659c33593b409c9a3c8e458dfe2, type: 3}
+  m_PrefabInstance: {fileID: 2826149526109072326}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &54171577
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -541,7 +551,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-322284
+  m_Name: pb_Mesh-1400
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1003,7 +1013,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-322256
+  m_Name: pb_Mesh-1372
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1289,11 +1299,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da7ae7ffe58ef8b4db0ba72e1f3a4784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &625780161 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2529797222210873950, guid: 258f2659c33593b409c9a3c8e458dfe2, type: 3}
-  m_PrefabInstance: {fileID: 2826149526109072326}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &647060207
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1711,6 +1716,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3c2b3746d090294fa2da717d6b68ae0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &750079148 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2826149527269381985, guid: 258f2659c33593b409c9a3c8e458dfe2, type: 3}
+  m_PrefabInstance: {fileID: 2826149526109072326}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3c2b3746d090294fa2da717d6b68ae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &916839379
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2016,7 +2032,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-322242
+  m_Name: pb_Mesh-1358
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2535,7 +2551,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-322228
+  m_Name: pb_Mesh-1344
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3589,7 +3605,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-322270
+  m_Name: pb_Mesh-1386
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3762,6 +3778,10 @@ PrefabInstance:
       propertyPath: blendAnim
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1688950018973642349, guid: 258f2659c33593b409c9a3c8e458dfe2, type: 3}
+      propertyPath: blendAnim
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2529797222210873950, guid: 258f2659c33593b409c9a3c8e458dfe2, type: 3}
       propertyPath: m_Name
       value: NextCutscene
@@ -3819,9 +3839,17 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2826149525424394907, guid: 258f2659c33593b409c9a3c8e458dfe2, type: 3}
+      propertyPath: _NextTrigger
+      value: 
+      objectReference: {fileID: 24036272}
+    - target: {fileID: 2826149525424394907, guid: 258f2659c33593b409c9a3c8e458dfe2, type: 3}
       propertyPath: _TriggerFunctions.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 495145869}
+    - target: {fileID: 2826149525424394907, guid: 258f2659c33593b409c9a3c8e458dfe2, type: 3}
+      propertyPath: _TriggerFunctions.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetText
+      objectReference: {fileID: 0}
     - target: {fileID: 2826149525505638877, guid: 258f2659c33593b409c9a3c8e458dfe2, type: 3}
       propertyPath: _Calls.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -3838,6 +3866,10 @@ PrefabInstance:
       propertyPath: _EndingTick
       value: 99999
       objectReference: {fileID: 0}
+    - target: {fileID: 2826149525541764181, guid: 258f2659c33593b409c9a3c8e458dfe2, type: 3}
+      propertyPath: _CurrentNode
+      value: 
+      objectReference: {fileID: 750079148}
     - target: {fileID: 2826149525542040445, guid: 258f2659c33593b409c9a3c8e458dfe2, type: 3}
       propertyPath: _TriggerFunctions.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3869,7 +3901,7 @@ PrefabInstance:
     - target: {fileID: 2826149525581393336, guid: 258f2659c33593b409c9a3c8e458dfe2, type: 3}
       propertyPath: _EndingTriggers.Array.data[0]
       value: 
-      objectReference: {fileID: 625780161}
+      objectReference: {fileID: 36273296}
     - target: {fileID: 2826149525628922888, guid: 258f2659c33593b409c9a3c8e458dfe2, type: 3}
       propertyPath: _TriggerFunctions.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3902,10 +3934,6 @@ PrefabInstance:
       propertyPath: _TriggerFunctions.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 1558532560}
-    - target: {fileID: 2826149525683996717, guid: 258f2659c33593b409c9a3c8e458dfe2, type: 3}
-      propertyPath: blendAnim
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2826149525699836403, guid: 258f2659c33593b409c9a3c8e458dfe2, type: 3}
       propertyPath: _TriggerFunctions.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -4154,10 +4182,6 @@ PrefabInstance:
       propertyPath: _TriggerFunctions.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 495145869}
-    - target: {fileID: 2826149526507889768, guid: 258f2659c33593b409c9a3c8e458dfe2, type: 3}
-      propertyPath: blendAnim
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2826149526566942003, guid: 258f2659c33593b409c9a3c8e458dfe2, type: 3}
       propertyPath: _TriggerFunctions.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -4181,10 +4205,6 @@ PrefabInstance:
     - target: {fileID: 2826149526943176934, guid: 258f2659c33593b409c9a3c8e458dfe2, type: 3}
       propertyPath: _Tick
       value: 400
-      objectReference: {fileID: 0}
-    - target: {fileID: 2826149526943176934, guid: 258f2659c33593b409c9a3c8e458dfe2, type: 3}
-      propertyPath: blendAnim
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2826149526956558749, guid: 258f2659c33593b409c9a3c8e458dfe2, type: 3}
       propertyPath: _TriggerFunctions.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -4278,7 +4298,7 @@ PrefabInstance:
       propertyPath: blendAnim
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3890300646863074842, guid: 258f2659c33593b409c9a3c8e458dfe2, type: 3}
+    - target: {fileID: 3552263883505320162, guid: 258f2659c33593b409c9a3c8e458dfe2, type: 3}
       propertyPath: blendAnim
       value: 0
       objectReference: {fileID: 0}
@@ -4286,13 +4306,21 @@ PrefabInstance:
       propertyPath: blendAnim
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6058018668928598305, guid: 258f2659c33593b409c9a3c8e458dfe2, type: 3}
+    - target: {fileID: 7574982237169277806, guid: 258f2659c33593b409c9a3c8e458dfe2, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7665222826871024959, guid: 258f2659c33593b409c9a3c8e458dfe2, type: 3}
+      propertyPath: _Tick
+      value: 850
+      objectReference: {fileID: 0}
+    - target: {fileID: 7665222826871024959, guid: 258f2659c33593b409c9a3c8e458dfe2, type: 3}
       propertyPath: blendAnim
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6064665601190214427, guid: 258f2659c33593b409c9a3c8e458dfe2, type: 3}
-      propertyPath: blendAnim
-      value: 0
+    - target: {fileID: 7665222826871024959, guid: 258f2659c33593b409c9a3c8e458dfe2, type: 3}
+      propertyPath: _AnimationStringToPlay
+      value: Walk
       objectReference: {fileID: 0}
     - target: {fileID: 7813943958450112427, guid: 258f2659c33593b409c9a3c8e458dfe2, type: 3}
       propertyPath: _Trigger
@@ -4325,6 +4353,22 @@ PrefabInstance:
     - target: {fileID: 7813943958450112427, guid: 258f2659c33593b409c9a3c8e458dfe2, type: 3}
       propertyPath: _TriggerFunctions.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7840631150260936773, guid: 258f2659c33593b409c9a3c8e458dfe2, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8847280272845356629, guid: 258f2659c33593b409c9a3c8e458dfe2, type: 3}
+      propertyPath: _TriggerFunctions.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1271792903}
+    - target: {fileID: 8847280272845356629, guid: 258f2659c33593b409c9a3c8e458dfe2, type: 3}
+      propertyPath: _TriggerFunctions.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartCutScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 8847280272845356629, guid: 258f2659c33593b409c9a3c8e458dfe2, type: 3}
+      propertyPath: _TriggerFunctions.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CutSceneManager, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 258f2659c33593b409c9a3c8e458dfe2, type: 3}
