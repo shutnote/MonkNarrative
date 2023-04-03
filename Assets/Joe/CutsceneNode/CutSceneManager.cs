@@ -21,6 +21,8 @@ public class CutSceneManager : MonoBehaviour
 
     [SerializeField] private CutSceneNode[] _ActorNodes;
     [SerializeField] private int _EndingTick;
+
+    [SerializeField] private GameObject[] _EndingTriggers;
     private List<ACTOR> _Actors;
 
     private float _CurrentTick;
@@ -63,6 +65,7 @@ public class CutSceneManager : MonoBehaviour
             Actor._CurrentNode = ActorNodeParent;
             Actor._CurrentNode.CallFunctions();
             Actor._NextNode = ActorNodeParent.GetNextNode();
+            Actor._Actor.SetActive(true);
             _Actors.Add(Actor);
         }
 
@@ -91,6 +94,10 @@ public class CutSceneManager : MonoBehaviour
             //Debug.Log("Ending Cutscene");
             GameObject.Find("Player").GetComponent<PlayerManager>().ToggleControl(true);
             _IsActive = false;
+            foreach(GameObject Trigger in _EndingTriggers)
+            {
+                Trigger.GetComponent<CutSceneTriggers>().Trigger(true);
+            }
         }
         Vector3 CurrentNode;
         Vector3 TargetNode;
@@ -161,6 +168,7 @@ public class CutSceneManager : MonoBehaviour
                 if (!Actor._NextNode.GetNextNode())
                 {
                     _Actors.Remove(Actor);
+                    //Actor._Actor.SetActive(false);
                     Actor._CurrentNode.CallFunctions();
 
                     Actor._CurrentNode.PlayAnimation();
