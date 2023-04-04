@@ -12,6 +12,8 @@ public class MagicManager : MonoBehaviour
     [SerializeField] private int _SpellIndexLeft;
     [SerializeField] private int _SpellIndexRight;
 
+    [SerializeField] private GameObject _UIPopup;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,11 +22,32 @@ public class MagicManager : MonoBehaviour
         _Collision.enabled = true;
         _Collision.direction = 2;
 
-        AddNewSpell(new MagicJump(transform));
+        //AddNewSpell(new MagicJump(transform));
+        //AddNewSpell(new MagicGrowth());
+        //AddNewSpell(new MagicTaser(transform));
+        //AddNewSpell(new MagicPush(transform));
+        //AddNewSpell(new MagicStatis());
+    }
+
+    public void UnlockGrowth()
+    {
         AddNewSpell(new MagicGrowth());
-        AddNewSpell(new MagicTaser(transform));
+        GetComponent<TimeManager>().ChangeTime(0);
+        _Spells[_Spells.Count-1].DisplayPopup(_UIPopup.GetComponent<CutScenePopup>());
+    }
+
+    public void UnlockPush()
+    {
         AddNewSpell(new MagicPush(transform));
+        GetComponent<TimeManager>().ChangeTime(0);
+        _Spells[_Spells.Count - 1].DisplayPopup(_UIPopup.GetComponent<CutScenePopup>());
+    }
+
+    public void UnlockStatis()
+    {
         AddNewSpell(new MagicStatis());
+        GetComponent<TimeManager>().ChangeTime(0);
+        _Spells[_Spells.Count - 1].DisplayPopup(_UIPopup.GetComponent<CutScenePopup>());
     }
 
     protected void AddNewSpell(MagicBasic Spell)
@@ -38,16 +61,19 @@ public class MagicManager : MonoBehaviour
         GameObject UIElementText = Instantiate(new GameObject());
         UIElement.AddComponent<Image>();
         UIElement.GetComponent<Image>().color = Spell.GetColour();
+        //UIElement.GetComponent<RectTransform>().localScale = new Vector3(0.3f, 0.3f, 0.3f);
         UIElement.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
-        UIElement.transform.position = UISpells.transform.position;
+       // UIElement.transform.position = UISpells.transform.position;
         UIElement.transform.parent = UISpells;
+        UIElement.transform.rotation = new Quaternion();
 
         UIElementText.AddComponent<TextMeshProUGUI>();
         UIElementText.GetComponent<TextMeshProUGUI>().text = Spell.GetLabel();
         UIElementText.GetComponent<TextMeshProUGUI>().fontSize = 24;
         UIElementText.GetComponent<TextMeshProUGUI>().alignment = TextAlignmentOptions.Center;
-        UIElementText.transform.position = UISpellsText.transform.position;
+        //UIElementText.transform.position = UISpellsText.transform.position;
         UIElementText.transform.parent = UISpellsText;
+        UIElementText.transform.rotation = new Quaternion();
     }
 
     public void MagicUISelection()

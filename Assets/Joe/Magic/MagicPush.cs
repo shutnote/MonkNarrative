@@ -9,8 +9,10 @@ public class MagicPush : MagicBasic
     {
         _Label = "Push";
         _TargetTag = "Any";
+        _Desc = "Push is a forbidden spell for monks to learn, however is one of the first taught to battle mages. Used to create distance between ones self and the enemy.";
+        _Texture = (Texture2D)Resources.Load("Assets/Textures/TestTexture.png");
         _Transform = Trans;
-        _Length = 10.0f;
+        _Length = 20.0f;
         _Radius = 3.0f;
         _UIColour = Color.magenta;
     }

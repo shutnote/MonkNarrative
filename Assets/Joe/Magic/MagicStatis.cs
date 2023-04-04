@@ -11,8 +11,10 @@ public class MagicStatis : MagicBasic
     {
         _Label = "Statis";
         _TargetTag = "Enemy";
-        _Length = 15.0f;
-        _Radius = 15.0f;
+        _Desc = "Statis is an advanced spell taught to Monks. Used to freeze objects in place.";
+        _Texture = (Texture2D)Resources.Load("Assets/Textures/TestTexture.png");
+        _Length = 25.0f;
+        _Radius = 25.0f;
         _UIColour = Color.magenta;
     }
 

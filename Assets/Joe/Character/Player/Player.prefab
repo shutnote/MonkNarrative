@@ -371,6 +371,7 @@ MonoBehaviour:
   _Spells: []
   _SpellIndexLeft: 0
   _SpellIndexRight: 0
+  _UIPopup: {fileID: 0}
 --- !u!114 &-3608127757312679358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -401,7 +402,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1109276870732470989
 Transform:
   m_ObjectHideFlags: 0
@@ -664,7 +665,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8146926971477167727
 Transform:
   m_ObjectHideFlags: 0
