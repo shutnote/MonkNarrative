@@ -70,4 +70,9 @@ public class PlayerManager : MonoBehaviour
         _InControl = Control;
         transform.GetChild(0).gameObject.SetActive(Control);
     }
+
+    public void ResetVelocity()
+    {
+        GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+    }
 }
