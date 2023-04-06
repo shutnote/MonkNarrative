@@ -1,80 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2736042935816204786
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1099042768521821533}
-  - component: {fileID: 6101972386493608392}
-  m_Layer: 0
-  m_Name: Main Camera
-  m_TagString: MainCamera
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1099042768521821533
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2736042935816204786}
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -7.4516854, y: 3.41, z: 2.2045984}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6697854472075149462}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!20 &6101972386493608392
-Camera:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2736042935816204786}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_projectionMatrixMode: 1
-  m_GateFitMode: 2
-  m_FOVAxisMode: 0
-  m_SensorSize: {x: 36, y: 24}
-  m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 50
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: -1
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
 --- !u!1 &4249523987772876173
 GameObject:
   m_ObjectHideFlags: 0
@@ -112,7 +37,6 @@ Transform:
   - {fileID: 4935321336647973027}
   - {fileID: 2130735530270527919}
   - {fileID: 7189201155413517740}
-  - {fileID: 1099042768521821533}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -174,6 +98,7 @@ MonoBehaviour:
   - {fileID: 5686238462330046788}
   - {fileID: 5686238461935781278}
   _EndingTick: 500000
+  _EndingTriggers: []
   _IsActive: 0
 --- !u!1 &7189201153958734256
 GameObject:
@@ -9009,24 +8934,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7189201155182739907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 136485801658796504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e82caa2608497524ab2fc1d1dfab947f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mixerGroup: {fileID: -2433438031595429630, guid: fd77b5e66541b694d9f04e8828c2551d, type: 2}
-  startingVolume: 1
-  startingPitch: 1
-  loop: 0
-  spatialBlend: 1
-  startClip: {fileID: 8300000, guid: 85468a68c735bbe4da6e6f35d2b74a4c, type: 3}
 --- !u!114 &7189201155182739904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9060,6 +8967,24 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 08f7d84755623924d90d9584ddf77a59, type: 3}
   - {fileID: 8300000, guid: 08f7d84755623924d90d9584ddf77a59, type: 3}
   DialougeToUse: 2
+--- !u!114 &7189201155182739907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136485801658796504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e82caa2608497524ab2fc1d1dfab947f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixerGroup: {fileID: -2433438031595429630, guid: fd77b5e66541b694d9f04e8828c2551d, type: 2}
+  startingVolume: 1
+  startingPitch: 1
+  loop: 0
+  spatialBlend: 1
+  startClip: {fileID: 8300000, guid: 85468a68c735bbe4da6e6f35d2b74a4c, type: 3}
 --- !u!4 &2130735530270527919 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9103121683500343398, guid: a0c6a1c2b0007f74499d66e86648c990, type: 3}

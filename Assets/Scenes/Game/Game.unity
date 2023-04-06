@@ -760,7 +760,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1484
+  m_Name: pb_Mesh64424
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1372,7 +1372,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1456
+  m_Name: pb_Mesh66172
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1649,6 +1649,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 900
       objectReference: {fileID: 0}
+    - target: {fileID: 5855374630445632915, guid: bcd7290920e343645bdd9ec13b8cf84d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -324.7447
+      objectReference: {fileID: 0}
     - target: {fileID: 7699018081388161348, guid: bcd7290920e343645bdd9ec13b8cf84d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 3
@@ -1709,6 +1713,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: CutsceneCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 9024979768506151994, guid: bcd7290920e343645bdd9ec13b8cf84d, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9024979768506151994, guid: bcd7290920e343645bdd9ec13b8cf84d, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1280
+      objectReference: {fileID: 0}
+    - target: {fileID: 9024979768506151994, guid: bcd7290920e343645bdd9ec13b8cf84d, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 720
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcd7290920e343645bdd9ec13b8cf84d, type: 3}
 --- !u!114 &567318419 stripped
@@ -1739,7 +1755,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-8742
+  m_Name: pb_Mesh50838
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2239,7 +2255,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-16736
+  m_Name: pb_Mesh64334
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3211,7 +3227,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1442
+  m_Name: pb_Mesh61952
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3978,7 +3994,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1428
+  m_Name: pb_Mesh70032
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4247,7 +4263,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1278
+  m_Name: pb_Mesh54160
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5044,7 +5060,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-16886
+  m_Name: pb_Mesh51740
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5289,7 +5305,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1232
+  m_Name: pb_Mesh65140
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5453,7 +5469,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-16874
+  m_Name: pb_Mesh57470
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5704,7 +5720,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-12038
+  m_Name: pb_Mesh66294
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5949,7 +5965,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-16768
+  m_Name: pb_Mesh57218
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6442,7 +6458,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1470
+  m_Name: pb_Mesh49950
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6793,7 +6809,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 686619851363624090, guid: 258f2659c33593b409c9a3c8e458dfe2, type: 3}
       propertyPath: _Calls.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
-      value: '*When In Danger, Time Slows Down. Use This For Your Advantage!*'
+      value: '*When In Danger, Time Slows Down.*'
       objectReference: {fileID: 0}
     - target: {fileID: 686619851363624090, guid: 258f2659c33593b409c9a3c8e458dfe2, type: 3}
       propertyPath: _Calls.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -8400,6 +8416,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3552263883505320162, guid: 258f2659c33593b409c9a3c8e458dfe2, type: 3}
+      propertyPath: _Tick
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 3552263883505320162, guid: 258f2659c33593b409c9a3c8e458dfe2, type: 3}
       propertyPath: blendAnim
       value: 0
       objectReference: {fileID: 0}
@@ -8470,6 +8490,10 @@ PrefabInstance:
     - target: {fileID: 4115148272637807171, guid: 258f2659c33593b409c9a3c8e458dfe2, type: 3}
       propertyPath: blendAnim
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314034474322832005, guid: 258f2659c33593b409c9a3c8e458dfe2, type: 3}
+      propertyPath: _Tick
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 7574982237169277806, guid: 258f2659c33593b409c9a3c8e458dfe2, type: 3}
       propertyPath: m_RootOrder
